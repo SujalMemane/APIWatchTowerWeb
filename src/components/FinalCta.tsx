@@ -11,13 +11,13 @@ export const FinalCta: React.FC = () => {
   };
 
   return (
-    <section className="section-wrapper" style={{ paddingBottom: '7rem' }}>
+    <section className="section-wrapper" style={{ paddingBottom: '4rem' }}>
       <div className="container">
         <div
           style={{
             backgroundColor: '#0f172a',
             borderRadius: 'var(--radius-xl)',
-            padding: '4rem 2rem',
+            padding: '3.5rem 2rem',
             textAlign: 'center',
             color: '#ffffff',
             position: 'relative',
@@ -46,20 +46,18 @@ export const FinalCta: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.5rem',
-                fontSize: '0.8125rem',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
+                fontSize: '0.78125rem',
+                fontWeight: 600,
+                letterSpacing: '0.02em',
                 color: '#c7d2fe',
                 backgroundColor: 'rgba(99, 102, 241, 0.25)',
                 border: '1px solid rgba(129, 140, 248, 0.4)',
-                padding: '0.35rem 0.95rem',
+                padding: '0.3rem 0.85rem',
                 borderRadius: '9999px',
-                marginBottom: '1.75rem',
-                fontFamily: 'var(--font-mono)'
+                marginBottom: '1.25rem'
               }}
             >
-              Get Started with the MVP
+              Get Started with the Extension
             </div>
 
             <h2

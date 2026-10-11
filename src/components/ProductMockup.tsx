@@ -27,7 +27,7 @@ export const ProductMockup: React.FC = () => {
   ];
 
   return (
-    <section className="container" style={{ marginBottom: '5rem', position: 'relative', zIndex: 3 }}>
+    <section className="container" style={{ marginBottom: '2.5rem', position: 'relative', zIndex: 3 }}>
       {/* Container Card */}
       <div
         style={{

@@ -31,7 +31,7 @@ export const ExtensionShowcase: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-eyebrow">
-            <span>VS Code Native Integration</span>
+            <span>VS Code Extension</span>
           </div>
           <h2 className="section-title">Dependency intelligence, right where you code.</h2>
           <p className="section-description">
@@ -47,7 +47,7 @@ export const ExtensionShowcase: React.FC = () => {
             border: '1px solid #2d2d3f',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.45)',
             overflow: 'hidden',
-            marginBottom: '3rem'
+            marginBottom: '2rem'
           }}
         >
           {/* Top Title Bar */}

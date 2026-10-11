@@ -16,7 +16,7 @@ export const ArchitectureDiagram: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-eyebrow">
-            <span>Verified System Architecture</span>
+            <span>System Architecture</span>
           </div>
           <h2 className="section-title">Fits into your existing development workflow.</h2>
           <p className="section-description">
@@ -255,7 +255,7 @@ export const ArchitectureDiagram: React.FC = () => {
           <ShieldCheck size={26} style={{ color: 'var(--color-success)', flexShrink: 0, marginTop: '2px' }} />
           <div>
             <h4 style={{ fontSize: '1.0625rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-text-primary)' }}>
-              Built Around Explicit Safety Guarantees (PRD Sec. 19)
+              Built Around Explicit Safety Guarantees
             </h4>
             <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.7, margin: 0 }}>
               The local backend binds exclusively to loopback (<code>127.0.0.1</code>), enforces request timeouts and size limits, rejects path traversal outside the workspace, verifies file hashes before applying patches, and keeps LLM interactions completely disabled by default.

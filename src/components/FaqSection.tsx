@@ -19,7 +19,7 @@ export const FaqSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-eyebrow">
-            <span>Frequently Asked Questions</span>
+            <span>FAQ</span>
           </div>
           <h2 className="section-title">Common questions & engineering guarantees.</h2>
           <p className="section-description">

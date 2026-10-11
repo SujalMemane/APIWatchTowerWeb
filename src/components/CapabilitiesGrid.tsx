@@ -49,7 +49,7 @@ export const CapabilitiesGrid: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-eyebrow">
-            <span>Verified System Capabilities</span>
+            <span>Platform Capabilities</span>
           </div>
           <h2 className="section-title">Engineered for accuracy, built for developer trust.</h2>
           <p className="section-description">
@@ -65,7 +65,7 @@ export const CapabilitiesGrid: React.FC = () => {
             justifyContent: 'center',
             gap: '0.625rem',
             flexWrap: 'wrap',
-            marginBottom: '3rem'
+            marginBottom: '2rem'
           }}
         >
           {categories.map((cat) => (

@@ -37,9 +37,6 @@ export const ProblemSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-eyebrow">
-            <span>FAILURE MODE ANALYSIS</span>
-          </div>
           <h2 className="section-title">Small API changes. Expensive engineering surprises.</h2>
           <p className="section-description">
             External services evolve on their own schedule. When contracts shift silently, engineering teams pay the price in firefighting and broken workflows.

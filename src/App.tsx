@@ -1,6 +1,5 @@
 import { AntigravityCanvas } from './components/AntigravityCanvas';
 import { CursorSpotlight } from './components/CursorSpotlight';
-import { AnnouncementBar } from './components/AnnouncementBar';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ProductMockup } from './components/ProductMockup';
@@ -31,9 +30,6 @@ export const App: React.FC = () => {
 
       {/* Background Interactive Cursor Spotlight */}
       <CursorSpotlight />
-
-      {/* Announcement Bar */}
-      <AnnouncementBar />
 
       {/* Navigation */}
       <Navbar onOpenQuickstart={handleOpenQuickstart} />

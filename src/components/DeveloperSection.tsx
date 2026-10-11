@@ -32,7 +32,7 @@ export const DeveloperSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-eyebrow">
-            <span>Developer Reference & Contracts</span>
+            <span>Developer Reference</span>
           </div>
           <h2 className="section-title">Easy to explore. Designed for real engineering workflows.</h2>
           <p className="section-description">

@@ -27,7 +27,7 @@ export const ApiComparisonDemo: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-eyebrow">
-            <span>Hands-on Investigation Sandbox</span>
+            <span>Interactive Diff Sandbox</span>
           </div>
           <h2 className="section-title">See the exact diff. Understand the exact break.</h2>
           <p className="section-description">

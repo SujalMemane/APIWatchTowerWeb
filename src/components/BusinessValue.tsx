@@ -44,7 +44,7 @@ export const BusinessValue: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-eyebrow">
-            <span>Engineering Leadership & Team Value</span>
+            <span>Team Value</span>
           </div>
           <h2 className="section-title">Give engineering teams more context, earlier.</h2>
           <p className="section-description">
@@ -58,7 +58,7 @@ export const BusinessValue: React.FC = () => {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
             gap: '2rem',
-            marginBottom: '4rem'
+            marginBottom: '2rem'
           }}
         >
           {pillars.map((pillar, i) => (

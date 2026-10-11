@@ -27,8 +27,8 @@ export const WorkflowProgression: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem' }}>
-            <span>RUNTIME VERIFICATION PIPELINE</span>
+          <div className="section-eyebrow">
+            <span>How It Works</span>
           </div>
           <h2 className="section-title">From API change to actionable repair.</h2>
           <p className="section-description">
@@ -44,7 +44,7 @@ export const WorkflowProgression: React.FC = () => {
             justifyContent: 'center',
             gap: '0.75rem',
             flexWrap: 'wrap',
-            marginBottom: '3rem'
+            marginBottom: '2rem'
           }}
         >
           {WORKFLOW_STEPS.map((step, idx) => {

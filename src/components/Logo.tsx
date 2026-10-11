@@ -61,26 +61,12 @@ export const Logo: React.FC<LogoProps> = ({ size = 28, showText = true, classNam
 
       {showText && (
         <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             <span style={{ fontWeight: 800, fontSize: '1.0625rem', letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}>
               Dependency Guardian
             </span>
-            <span
-              style={{
-                fontSize: '0.625rem',
-                fontWeight: 700,
-                color: 'var(--color-brand-primary)',
-                backgroundColor: 'var(--color-brand-surface)',
-                padding: '0.125rem 0.375rem',
-                borderRadius: 'var(--radius-xs)',
-                letterSpacing: '0.04em',
-                border: '1px solid var(--color-brand-border)'
-              }}
-            >
-              HACKWAVE
-            </span>
           </div>
-          <span style={{ fontSize: '0.6875rem', color: 'var(--color-text-muted)', fontWeight: 500, letterSpacing: '0.01em' }}>
+          <span style={{ fontSize: '0.6875rem', color: 'var(--color-text-muted)', fontWeight: 500, letterSpacing: '0.01em', marginTop: '1px' }}>
             API Change Intelligence
           </span>
         </div>

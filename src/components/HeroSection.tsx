@@ -12,16 +12,16 @@ import {
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="section-wrapper subtle-grid-bg" style={{ paddingTop: '4.5rem', paddingBottom: '3.5rem', overflow: 'hidden' }}>
+    <section className="section-wrapper subtle-grid-bg" style={{ paddingTop: '3.75rem', paddingBottom: '2.5rem', overflow: 'hidden' }}>
       {/* Radiant Aurora Mesh Backdrop */}
       <div className="hero-aurora-mesh" aria-hidden="true" />
 
       <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
-        {/* Technical Eyebrow Specification */}
-        <div style={{ display: 'inline-flex', marginBottom: '1.5rem' }}>
-          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', letterSpacing: '0.06em' }}>
+        {/* Sleek Technical Eyebrow */}
+        <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
+          <div className="section-eyebrow">
             <span className="status-dot pulsing" style={{ color: 'var(--color-brand-primary)' }}></span>
-            <span>RFC-9110 HTTP/JSON RUNTIME COMPATIBILITY MONITORING</span>
+            <span>API Contract & Runtime Intelligence</span>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ export const HeroSection: React.FC = () => {
         <p
           style={{
             maxWidth: '780px',
-            margin: '0 auto 3rem auto',
+            margin: '0 auto 2.25rem auto',
             fontSize: '1.25rem',
             color: 'var(--color-text-secondary)',
             lineHeight: 1.75,
@@ -104,33 +104,32 @@ export const HeroSection: React.FC = () => {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '1.35rem',
+            gap: '1.25rem',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            padding: '0.75rem 1.5rem',
+            padding: '0.625rem 1.25rem',
             backgroundColor: 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(10px)',
             border: '1px solid var(--color-border-default)',
             borderRadius: 'var(--radius-lg)',
             boxShadow: 'var(--shadow-xs)',
             fontSize: '0.8125rem',
-            fontFamily: 'var(--font-mono)',
             color: 'var(--color-text-secondary)'
           }}
         >
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600, color: 'var(--color-text-primary)' }}>
             <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'var(--color-success)', display: 'inline-block' }} />
-            <span>ENV: LOCALHOST_LOOPBACK (127.0.0.1)</span>
+            <span>Localhost Loopback (127.0.0.1)</span>
           </span>
           <span style={{ color: 'var(--color-border-hover)' }}>|</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontWeight: 600 }}>
             <Cpu size={14} style={{ color: 'var(--color-brand-primary)' }} />
-            <span>DETECTION: DETERMINISTIC_DIFFS</span>
+            <span>Deterministic Structural Diffs</span>
           </span>
           <span style={{ color: 'var(--color-border-hover)' }}>|</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontWeight: 600 }}>
             <Terminal size={14} style={{ color: 'var(--color-text-secondary)' }} />
-            <span>SAFETY: PYTEST_GATED_APPROVAL</span>
+            <span>Pytest-Gated Approval</span>
           </span>
         </div>
 
@@ -141,7 +140,7 @@ export const HeroSection: React.FC = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '1.25rem',
             maxWidth: '1100px',
-            margin: '3rem auto 0 auto',
+            margin: '2.25rem auto 0 auto',
             width: '100%'
           }}
         >

@@ -18,8 +18,8 @@ export const HeroSection: React.FC = () => {
 
       <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
         {/* Technical Eyebrow Specification */}
-        <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
-          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.06em' }}>
+        <div style={{ display: 'inline-flex', marginBottom: '1.5rem' }}>
+          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', letterSpacing: '0.06em' }}>
             <span className="status-dot pulsing" style={{ color: 'var(--color-brand-primary)' }}></span>
             <span>RFC-9110 HTTP/JSON RUNTIME COMPATIBILITY MONITORING</span>
           </div>
@@ -28,8 +28,8 @@ export const HeroSection: React.FC = () => {
         {/* Main Headline with Production Gradient */}
         <h1
           style={{
-            maxWidth: '960px',
-            margin: '0 auto 1.6rem auto',
+            maxWidth: '980px',
+            margin: '0 auto 1.75rem auto',
             letterSpacing: '-0.04em',
             lineHeight: 1.12
           }}
@@ -41,11 +41,11 @@ export const HeroSection: React.FC = () => {
         {/* Supporting Subhead */}
         <p
           style={{
-            maxWidth: '740px',
-            margin: '0 auto 2.75rem auto',
+            maxWidth: '780px',
+            margin: '0 auto 3rem auto',
             fontSize: '1.25rem',
             color: 'var(--color-text-secondary)',
-            lineHeight: 1.7,
+            lineHeight: 1.75,
             letterSpacing: '-0.01em'
           }}
         >
@@ -58,15 +58,16 @@ export const HeroSection: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '1rem',
+            gap: '1.25rem',
             flexWrap: 'wrap',
-            marginBottom: '2rem'
+            marginBottom: '2.5rem'
           }}
         >
           <a
             href="#extension-showcase"
             className="btn btn-primary btn-lg"
             id="hero-primary-cta"
+            style={{ fontSize: '1.0625rem', padding: '0.95rem 1.85rem' }}
           >
             Explore the Extension <ArrowRight size={18} />
           </a>
@@ -75,6 +76,7 @@ export const HeroSection: React.FC = () => {
             href="#how-it-works"
             className="btn btn-secondary btn-lg"
             id="hero-secondary-cta"
+            style={{ fontSize: '1.0625rem', padding: '0.95rem 1.85rem' }}
           >
             See How It Works <ArrowDown size={16} />
           </a>
@@ -82,13 +84,13 @@ export const HeroSection: React.FC = () => {
           <a
             href="#architecture"
             style={{
-              fontSize: '0.9375rem',
-              fontWeight: 600,
+              fontSize: '1rem',
+              fontWeight: 700,
               color: 'var(--color-brand-primary)',
-              padding: '0.5rem 0.75rem',
+              padding: '0.6rem 0.85rem',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.35rem',
+              gap: '0.4rem',
               textDecoration: 'none'
             }}
             id="hero-tertiary-link"
@@ -102,32 +104,32 @@ export const HeroSection: React.FC = () => {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '1.25rem',
+            gap: '1.35rem',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            padding: '0.65rem 1.25rem',
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            backdropFilter: 'blur(8px)',
+            padding: '0.75rem 1.5rem',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            backdropFilter: 'blur(10px)',
             border: '1px solid var(--color-border-default)',
-            borderRadius: 'var(--radius-md)',
+            borderRadius: 'var(--radius-lg)',
             boxShadow: 'var(--shadow-xs)',
-            fontSize: '0.78rem',
+            fontSize: '0.8125rem',
             fontFamily: 'var(--font-mono)',
             color: 'var(--color-text-secondary)'
           }}
         >
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, color: 'var(--color-text-primary)' }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--color-success)', display: 'inline-block' }} />
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'var(--color-success)', display: 'inline-block' }} />
             <span>ENV: LOCALHOST_LOOPBACK (127.0.0.1)</span>
           </span>
           <span style={{ color: 'var(--color-border-hover)' }}>|</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <Cpu size={13} style={{ color: 'var(--color-brand-primary)' }} />
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontWeight: 600 }}>
+            <Cpu size={14} style={{ color: 'var(--color-brand-primary)' }} />
             <span>DETECTION: DETERMINISTIC_DIFFS</span>
           </span>
           <span style={{ color: 'var(--color-border-hover)' }}>|</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <Terminal size={13} style={{ color: 'var(--color-text-secondary)' }} />
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontWeight: 600 }}>
+            <Terminal size={14} style={{ color: 'var(--color-text-secondary)' }} />
             <span>SAFETY: PYTEST_GATED_APPROVAL</span>
           </span>
         </div>
@@ -136,17 +138,17 @@ export const HeroSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-            gap: '1rem',
-            maxWidth: '1080px',
-            margin: '2.75rem auto 0 auto',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '1.25rem',
+            maxWidth: '1100px',
+            margin: '3rem auto 0 auto',
             width: '100%'
           }}
         >
           <div className="telemetry-card">
             <div className="telemetry-header">
               <span className="telemetry-tag">ENGINE ACCURACY</span>
-              <Activity size={15} style={{ color: 'var(--color-brand-primary)' }} />
+              <Activity size={16} style={{ color: 'var(--color-brand-primary)' }} />
             </div>
             <div className="telemetry-value">100% Deterministic</div>
             <p className="telemetry-desc">
@@ -157,7 +159,7 @@ export const HeroSection: React.FC = () => {
           <div className="telemetry-card">
             <div className="telemetry-header">
               <span className="telemetry-tag">CAPTURE LATENCY</span>
-              <Zap size={15} style={{ color: '#0284c7' }} />
+              <Zap size={16} style={{ color: '#0284c7' }} />
             </div>
             <div className="telemetry-value">&lt;1.2s Detection</div>
             <p className="telemetry-desc">
@@ -168,7 +170,7 @@ export const HeroSection: React.FC = () => {
           <div className="telemetry-card">
             <div className="telemetry-header">
               <span className="telemetry-tag">MUTATION CONTROL</span>
-              <ShieldCheck size={15} style={{ color: 'var(--color-success)' }} />
+              <ShieldCheck size={16} style={{ color: 'var(--color-success)' }} />
             </div>
             <div className="telemetry-value">Zero Silent Writes</div>
             <p className="telemetry-desc">
@@ -179,7 +181,7 @@ export const HeroSection: React.FC = () => {
           <div className="telemetry-card">
             <div className="telemetry-header">
               <span className="telemetry-tag">STATE RESILIENCE</span>
-              <GitBranch size={15} style={{ color: '#8b5cf6' }} />
+              <GitBranch size={16} style={{ color: '#8b5cf6' }} />
             </div>
             <div className="telemetry-value">1-Click Rollback</div>
             <p className="telemetry-desc">

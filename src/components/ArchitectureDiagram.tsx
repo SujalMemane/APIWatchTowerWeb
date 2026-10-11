@@ -38,25 +38,29 @@ export const ArchitectureDiagram: React.FC = () => {
           <div
             style={{
               backgroundColor: '#ffffff',
-              borderRadius: 'var(--radius-lg)',
+              borderRadius: 'var(--radius-xl)',
               border: '1px solid var(--color-border-default)',
-              padding: '1.5rem',
+              padding: '2rem',
               boxShadow: 'var(--shadow-sm)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Server size={18} style={{ color: 'var(--color-brand-primary)' }} />
-                <h4 style={{ fontSize: '1rem', fontWeight: 700 }}>Simulated External Dependencies (Local Ports)</h4>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                <Server size={22} style={{ color: 'var(--color-brand-primary)' }} />
+                <h4 style={{ fontSize: '1.1875rem', fontWeight: 800, color: 'var(--color-text-primary)' }}>
+                  Simulated External Dependencies (Local Ports)
+                </h4>
               </div>
-              <span className="status-pill neutral">Target Environment (Localhost)</span>
+              <span className="status-pill neutral" style={{ fontSize: '0.78rem', padding: '0.3rem 0.75rem' }}>
+                Target Environment (Localhost)
+              </span>
             </div>
 
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: '1rem'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+                gap: '1.125rem'
               }}
             >
               {ARCHITECTURE_LAYERS[0].components.map((c, i) => (
@@ -66,16 +70,16 @@ export const ArchitectureDiagram: React.FC = () => {
                     backgroundColor: 'var(--color-surface-muted)',
                     border: '1px solid var(--color-border-subtle)',
                     borderRadius: 'var(--radius-md)',
-                    padding: '0.85rem'
+                    padding: '1.125rem'
                   }}
                 >
-                  <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--color-text-primary)', marginBottom: '0.2rem' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.975rem', color: 'var(--color-text-primary)', marginBottom: '0.35rem' }}>
                     {c.title}
                   </div>
-                  <div style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: 'var(--color-brand-primary)', marginBottom: '0.35rem' }}>
+                  <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-brand-primary)', marginBottom: '0.5rem', fontWeight: 600 }}>
                     {c.tech}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', lineHeight: 1.4 }}>
+                  <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
                     {c.detail}
                   </div>
                 </div>
@@ -84,15 +88,15 @@ export const ArchitectureDiagram: React.FC = () => {
           </div>
 
           {/* Animated Directional Flow Pipe 1 */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '-0.35rem 0' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '-0.2rem 0' }}>
             <svg width="24" height="36" viewBox="0 0 24 36" fill="none">
               <line x1="12" y1="0" x2="12" y2="36" stroke="#818cf8" strokeWidth="2.5" strokeDasharray="6 6" style={{ animation: 'data-flow 1.2s linear infinite' }} />
               <circle cx="12" cy="18" r="3.5" fill="#4f46e5" />
             </svg>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem' }}>
-              <ArrowDown size={13} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.35rem 0.95rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem', fontFamily: 'var(--font-mono)' }}>
+              <ArrowDown size={14} />
               <span>HTTP Probes & Fingerprint Capture (HTTPX async)</span>
-              <ArrowDown size={13} />
+              <ArrowDown size={14} />
             </div>
           </div>
 
@@ -100,33 +104,34 @@ export const ArchitectureDiagram: React.FC = () => {
           <div
             style={{
               backgroundColor: '#0f172a',
-              borderRadius: 'var(--radius-lg)',
+              borderRadius: 'var(--radius-xl)',
               border: '1px solid #1e293b',
-              padding: '1.75rem',
+              padding: '2.25rem',
               color: '#ffffff',
               boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
-                <Cpu size={20} style={{ color: '#818cf8' }} />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <Cpu size={24} style={{ color: '#818cf8' }} />
                 <div>
-                  <h4 style={{ fontSize: '1.0625rem', fontWeight: 700, color: '#ffffff' }}>
+                  <h4 style={{ fontSize: '1.1875rem', fontWeight: 800, color: '#ffffff' }}>
                     Local Python Backend (FastAPI • 127.0.0.1:8765)
                   </h4>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                  <div style={{ fontSize: '0.8125rem', color: '#94a3b8', marginTop: '0.2rem' }}>
                     Bound strictly to loopback • SQLite Persistence • Pytest Validation Sandbox
                   </div>
                 </div>
               </div>
               <span
                 style={{
-                  fontSize: '0.6875rem',
+                  fontSize: '0.75rem',
                   fontFamily: 'var(--font-mono)',
+                  fontWeight: 600,
                   backgroundColor: 'rgba(99, 102, 241, 0.25)',
                   color: '#c7d2fe',
                   border: '1px solid rgba(129, 140, 248, 0.4)',
-                  padding: '0.2rem 0.6rem',
+                  padding: '0.25rem 0.75rem',
                   borderRadius: '4px'
                 }}
               >
@@ -138,7 +143,7 @@ export const ArchitectureDiagram: React.FC = () => {
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                gap: '1rem'
+                gap: '1.125rem'
               }}
             >
               {ARCHITECTURE_LAYERS[1].components.map((c, i) => (
@@ -148,16 +153,16 @@ export const ArchitectureDiagram: React.FC = () => {
                     backgroundColor: '#1e293b',
                     borderRadius: 'var(--radius-md)',
                     border: '1px solid #334155',
-                    padding: '0.85rem'
+                    padding: '1.125rem'
                   }}
                 >
-                  <div style={{ fontWeight: 700, fontSize: '0.875rem', color: '#ffffff', marginBottom: '0.2rem' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.975rem', color: '#ffffff', marginBottom: '0.35rem' }}>
                     {c.title}
                   </div>
-                  <div style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#a5b4fc', marginBottom: '0.35rem' }}>
+                  <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#a5b4fc', marginBottom: '0.5rem', fontWeight: 600 }}>
                     {c.tech}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', lineHeight: 1.45 }}>
+                  <div style={{ fontSize: '0.875rem', color: '#cbd5e1', lineHeight: 1.55 }}>
                     {c.detail}
                   </div>
                 </div>
@@ -166,15 +171,15 @@ export const ArchitectureDiagram: React.FC = () => {
           </div>
 
           {/* Animated Directional Flow Pipe 2 */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '-0.35rem 0' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '-0.2rem 0' }}>
             <svg width="24" height="36" viewBox="0 0 24 36" fill="none">
               <line x1="12" y1="0" x2="12" y2="36" stroke="#818cf8" strokeWidth="2.5" strokeDasharray="6 6" style={{ animation: 'data-flow 1.2s linear infinite' }} />
               <circle cx="12" cy="18" r="3.5" fill="#4f46e5" />
             </svg>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem' }}>
-              <ArrowDown size={13} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.35rem 0.95rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem', fontFamily: 'var(--font-mono)' }}>
+              <ArrowDown size={14} />
               <span>Local REST Client • Tree View RPC • Diff & Approval Commands</span>
-              <ArrowDown size={13} />
+              <ArrowDown size={14} />
             </div>
           </div>
 
@@ -182,25 +187,29 @@ export const ArchitectureDiagram: React.FC = () => {
           <div
             style={{
               backgroundColor: '#ffffff',
-              borderRadius: 'var(--radius-lg)',
+              borderRadius: 'var(--radius-xl)',
               border: '1px solid var(--color-border-default)',
-              padding: '1.5rem',
+              padding: '2rem',
               boxShadow: 'var(--shadow-sm)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Terminal size={18} style={{ color: 'var(--color-brand-primary)' }} />
-                <h4 style={{ fontSize: '1rem', fontWeight: 700 }}>Developer Interface: VS Code Extension</h4>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                <Terminal size={22} style={{ color: 'var(--color-brand-primary)' }} />
+                <h4 style={{ fontSize: '1.1875rem', fontWeight: 800, color: 'var(--color-text-primary)' }}>
+                  Developer Interface: VS Code Extension
+                </h4>
               </div>
-              <span className="status-pill success">TypeScript Extension Host</span>
+              <span className="status-pill success" style={{ fontSize: '0.78rem', padding: '0.3rem 0.75rem' }}>
+                TypeScript Extension Host
+              </span>
             </div>
 
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                gap: '1rem'
+                gap: '1.125rem'
               }}
             >
               {ARCHITECTURE_LAYERS[2].components.map((c, i) => (
@@ -210,16 +219,16 @@ export const ArchitectureDiagram: React.FC = () => {
                     backgroundColor: 'var(--color-surface-muted)',
                     border: '1px solid var(--color-border-subtle)',
                     borderRadius: 'var(--radius-md)',
-                    padding: '0.85rem'
+                    padding: '1.125rem'
                   }}
                 >
-                  <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--color-text-primary)', marginBottom: '0.2rem' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.975rem', color: 'var(--color-text-primary)', marginBottom: '0.35rem' }}>
                     {c.title}
                   </div>
-                  <div style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: 'var(--color-brand-primary)', marginBottom: '0.35rem' }}>
+                  <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-brand-primary)', marginBottom: '0.5rem', fontWeight: 600 }}>
                     {c.tech}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', lineHeight: 1.4 }}>
+                  <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
                     {c.detail}
                   </div>
                 </div>
@@ -231,23 +240,24 @@ export const ArchitectureDiagram: React.FC = () => {
         {/* Security & Reliability Callout Banner */}
         <div
           style={{
-            backgroundColor: 'var(--color-surface-subtle)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '1.5rem',
-            border: '1px solid var(--color-border-default)',
+            backgroundColor: 'rgba(238, 242, 255, 0.55)',
+            borderRadius: 'var(--radius-xl)',
+            padding: '1.85rem 2rem',
+            border: '1px solid rgba(129, 140, 248, 0.35)',
             display: 'flex',
             alignItems: 'flex-start',
-            gap: '1rem',
+            gap: '1.25rem',
             maxWidth: '1000px',
-            margin: '0 auto'
+            margin: '0 auto',
+            boxShadow: 'var(--shadow-xs)'
           }}
         >
-          <ShieldCheck size={24} style={{ color: 'var(--color-success)', flexShrink: 0, marginTop: '2px' }} />
+          <ShieldCheck size={26} style={{ color: 'var(--color-success)', flexShrink: 0, marginTop: '2px' }} />
           <div>
-            <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, marginBottom: '0.35rem', color: 'var(--color-text-primary)' }}>
+            <h4 style={{ fontSize: '1.0625rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-text-primary)' }}>
               Built Around Explicit Safety Guarantees (PRD Sec. 19)
             </h4>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.7, margin: 0 }}>
               The local backend binds exclusively to loopback (<code>127.0.0.1</code>), enforces request timeouts and size limits, rejects path traversal outside the workspace, verifies file hashes before applying patches, and keeps LLM interactions completely disabled by default.
             </p>
           </div>

@@ -162,7 +162,7 @@ export const ApiComparisonDemo: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
               backgroundColor: '#090d16',
               borderBottom: '1px solid #1e293b'
             }}
@@ -170,12 +170,12 @@ export const ApiComparisonDemo: React.FC = () => {
             {/* Left Panel: Baseline */}
             <div
               style={{
-                padding: '1.5rem',
+                padding: '1.75rem 2rem',
                 borderRight: '1px solid #1e293b'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: '#94a3b8', letterSpacing: '0.05em' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: '#cbd5e1', letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
                   Preserved Baseline (Known-Good V1)
                 </span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -184,21 +184,21 @@ export const ApiComparisonDemo: React.FC = () => {
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.25rem',
-                      fontSize: '0.6875rem',
-                      color: copiedSide === 'baseline' ? '#10b981' : '#94a3b8',
-                      backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                      border: '1px solid #1e293b',
+                      gap: '0.3rem',
+                      fontSize: '0.75rem',
+                      color: copiedSide === 'baseline' ? '#10b981' : '#cbd5e1',
+                      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                      border: '1px solid #334155',
                       borderRadius: '4px',
-                      padding: '0.15rem 0.45rem',
+                      padding: '0.2rem 0.55rem',
                       cursor: 'pointer'
                     }}
                     title="Copy Baseline JSON"
                   >
-                    {copiedSide === 'baseline' ? <Check size={11} /> : <Copy size={11} />}
+                    {copiedSide === 'baseline' ? <Check size={12} /> : <Copy size={12} />}
                     {copiedSide === 'baseline' ? 'Copied' : 'Copy'}
                   </button>
-                  <span style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#34d399', backgroundColor: 'rgba(16, 185, 129, 0.15)', padding: '0.2rem 0.55rem', borderRadius: '4px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
                     SQLite Snapshot #1
                   </span>
                 </div>
@@ -206,9 +206,9 @@ export const ApiComparisonDemo: React.FC = () => {
               <pre
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.8125rem',
-                  lineHeight: 1.6,
-                  color: '#cbd5e1',
+                  fontSize: '0.875rem',
+                  lineHeight: 1.65,
+                  color: '#e2e8f0',
                   overflowX: 'auto',
                   margin: 0
                 }}
@@ -220,12 +220,12 @@ export const ApiComparisonDemo: React.FC = () => {
             {/* Right Panel: Observed */}
             <div
               style={{
-                padding: '1.5rem',
+                padding: '1.75rem 2rem',
                 backgroundColor: '#070a12'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: '#fca5a5', letterSpacing: '0.05em' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: '#fca5a5', letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
                   Observed Response (Current Probe V2)
                 </span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -234,21 +234,21 @@ export const ApiComparisonDemo: React.FC = () => {
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.25rem',
-                      fontSize: '0.6875rem',
-                      color: copiedSide === 'observed' ? '#10b981' : '#94a3b8',
-                      backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                      border: '1px solid #1e293b',
+                      gap: '0.3rem',
+                      fontSize: '0.75rem',
+                      color: copiedSide === 'observed' ? '#10b981' : '#cbd5e1',
+                      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                      border: '1px solid #334155',
                       borderRadius: '4px',
-                      padding: '0.15rem 0.45rem',
+                      padding: '0.2rem 0.55rem',
                       cursor: 'pointer'
                     }}
                     title="Copy Observed JSON"
                   >
-                    {copiedSide === 'observed' ? <Check size={11} /> : <Copy size={11} />}
+                    {copiedSide === 'observed' ? <Check size={12} /> : <Copy size={12} />}
                     {copiedSide === 'observed' ? 'Copied' : 'Copy'}
                   </button>
-                  <span style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#f87171', backgroundColor: 'rgba(239, 68, 68, 0.15)', padding: '0.2rem 0.55rem', borderRadius: '4px', border: '1px solid rgba(239, 68, 68, 0.3)' }}>
                     Difference Detected
                   </span>
                 </div>
@@ -256,9 +256,9 @@ export const ApiComparisonDemo: React.FC = () => {
               <pre
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.8125rem',
-                  lineHeight: 1.6,
-                  color: '#cbd5e1',
+                  fontSize: '0.875rem',
+                  lineHeight: 1.65,
+                  color: '#e2e8f0',
                   overflowX: 'auto',
                   margin: 0
                 }}
@@ -271,55 +271,55 @@ export const ApiComparisonDemo: React.FC = () => {
           {/* Impact & Safety Engine Analysis Footer */}
           <div
             style={{
-              padding: '1.75rem',
+              padding: '2.25rem',
               backgroundColor: '#ffffff',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+              gap: '2rem'
             }}
           >
             {/* Col 1: Diff Explanation */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.5rem' }}>
-                <ShieldAlert size={16} style={{ color: 'var(--color-danger)' }} />
-                <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.65rem' }}>
+                <ShieldAlert size={18} style={{ color: 'var(--color-danger)' }} />
+                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
                   Change Analysis
                 </span>
               </div>
-              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
+              <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.65 }}>
                 {currentScenario.explanation}
               </p>
             </div>
 
             {/* Col 2: Affected Code */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.5rem' }}>
-                <FileCode2 size={16} style={{ color: 'var(--color-brand-primary)' }} />
-                <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.65rem' }}>
+                <FileCode2 size={18} style={{ color: 'var(--color-brand-primary)' }} />
+                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
                   Affected Configured Code
                 </span>
               </div>
-              <div style={{ fontSize: '0.8125rem', fontFamily: 'var(--font-mono)', color: 'var(--color-text-secondary)', marginBottom: '0.35rem' }}>
+              <div style={{ fontSize: '0.875rem', fontFamily: 'var(--font-mono)', color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.25rem 0.5rem', borderRadius: '4px', display: 'inline-block', marginBottom: '0.5rem', fontWeight: 600 }}>
                 {currentScenario.affectedWorkflow.sourceFile}:{currentScenario.affectedWorkflow.affectedLine}
               </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+              <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
                 Workflow: <strong>{currentScenario.affectedWorkflow.name}</strong> • Test: <code>{currentScenario.affectedWorkflow.testFile}</code>
               </div>
             </div>
 
             {/* Col 3: Engine Action */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.65rem' }}>
                 {currentScenario.proposedRepair.canAutoRepair ? (
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-success)' }} />
+                  <CheckCircle2 size={18} style={{ color: 'var(--color-success)' }} />
                 ) : (
-                  <Lock size={16} style={{ color: 'var(--color-warning)' }} />
+                  <Lock size={18} style={{ color: 'var(--color-warning)' }} />
                 )}
-                <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
                   {currentScenario.proposedRepair.canAutoRepair ? 'Assisted Repair Available' : 'Safety Lock Engaged'}
                 </span>
               </div>
-              <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
+              <div style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.65 }}>
                 {currentScenario.proposedRepair.canAutoRepair ? (
                   <span>
                     Strategy: <strong>{currentScenario.proposedRepair.strategy}</strong>. Verified against pytest suite ({currentScenario.validation.passCount}/{currentScenario.validation.testCount} tests).

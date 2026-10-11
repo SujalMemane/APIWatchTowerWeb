@@ -364,10 +364,10 @@ export const ExtensionShowcase: React.FC = () => {
           }}
         >
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, marginBottom: '0.65rem', color: 'var(--color-text-primary)', letterSpacing: '-0.025em' }}>
               Install Extension Locally
             </h3>
-            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '1rem', color: 'var(--color-text-secondary)', lineHeight: 1.65, marginBottom: '1.5rem' }}>
               The Dependency Guardian extension connects directly to your local FastAPI backend over loopback (<code>127.0.0.1:8765</code>).
             </p>
 
@@ -376,17 +376,18 @@ export const ExtensionShowcase: React.FC = () => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                backgroundColor: 'var(--color-surface-muted)',
+                backgroundColor: '#ffffff',
                 border: '1px solid var(--color-border-default)',
                 borderRadius: 'var(--radius-md)',
-                padding: '0.5rem 0.75rem',
-                gap: '0.75rem',
+                padding: '0.75rem 1.15rem',
+                gap: '0.85rem',
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.8125rem'
+                fontSize: '0.9rem',
+                boxShadow: 'var(--shadow-xs)'
               }}
             >
-              <Terminal size={15} style={{ color: 'var(--color-text-muted)' }} />
-              <span style={{ flex: 1, color: 'var(--color-text-primary)' }}>
+              <Terminal size={17} style={{ color: 'var(--color-brand-primary)' }} />
+              <span style={{ flex: 1, color: 'var(--color-text-primary)', fontWeight: 600 }}>
                 code --install-extension dependency-guardian.vsix
               </span>
               <button
@@ -395,15 +396,15 @@ export const ExtensionShowcase: React.FC = () => {
                   background: 'none',
                   border: 'none',
                   cursor: 'pointer',
-                  color: copied ? 'var(--color-success)' : 'var(--color-text-muted)',
+                  color: copied ? 'var(--color-success)' : 'var(--color-brand-primary)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.25rem',
-                  fontSize: '0.75rem',
-                  fontWeight: 600
+                  gap: '0.35rem',
+                  fontSize: '0.8125rem',
+                  fontWeight: 700
                 }}
               >
-                {copied ? <Check size={14} /> : <Copy size={14} />}
+                {copied ? <Check size={15} /> : <Copy size={15} />}
                 {copied ? 'Copied' : 'Copy'}
               </button>
             </div>
@@ -413,28 +414,28 @@ export const ExtensionShowcase: React.FC = () => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '0.75rem'
+              gap: '1rem'
             }}
           >
-            <div style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-text-muted)', letterSpacing: '0.04em' }}>
+            <div style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-text-muted)', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>
               Supported Extension Commands
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.8125rem' }}>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-secondary)' }}>
-                <CheckCircle2 size={14} style={{ color: 'var(--color-success)' }} />
-                <code>Dependency Guardian: Create Baseline</code> — Capture known-good state
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9375rem' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--color-text-secondary)' }}>
+                <CheckCircle2 size={16} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
+                <span><code style={{ fontSize: '0.85rem', fontWeight: 600, padding: '0.15rem 0.45rem', backgroundColor: 'var(--color-surface-muted)', border: '1px solid var(--color-border-subtle)', borderRadius: '4px' }}>Dependency Guardian: Create Baseline</code> — Capture known-good state</span>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-secondary)' }}>
-                <CheckCircle2 size={14} style={{ color: 'var(--color-success)' }} />
-                <code>Dependency Guardian: Scan Dependencies</code> — Run probes & diffing
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--color-text-secondary)' }}>
+                <CheckCircle2 size={16} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
+                <span><code style={{ fontSize: '0.85rem', fontWeight: 600, padding: '0.15rem 0.45rem', backgroundColor: 'var(--color-surface-muted)', border: '1px solid var(--color-border-subtle)', borderRadius: '4px' }}>Dependency Guardian: Scan Dependencies</code> — Run probes & diffing</span>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-secondary)' }}>
-                <CheckCircle2 size={14} style={{ color: 'var(--color-success)' }} />
-                <code>Dependency Guardian: Preview Repair</code> — Review proposed patch & assumptions
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--color-text-secondary)' }}>
+                <CheckCircle2 size={16} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
+                <span><code style={{ fontSize: '0.85rem', fontWeight: 600, padding: '0.15rem 0.45rem', backgroundColor: 'var(--color-surface-muted)', border: '1px solid var(--color-border-subtle)', borderRadius: '4px' }}>Dependency Guardian: Preview Repair</code> — Review proposed patch & assumptions</span>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-secondary)' }}>
-                <CheckCircle2 size={14} style={{ color: 'var(--color-success)' }} />
-                <code>Dependency Guardian: Roll Back Repair</code> — 1-click safe restoration
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--color-text-secondary)' }}>
+                <CheckCircle2 size={16} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
+                <span><code style={{ fontSize: '0.85rem', fontWeight: 600, padding: '0.15rem 0.45rem', backgroundColor: 'var(--color-surface-muted)', border: '1px solid var(--color-border-subtle)', borderRadius: '4px' }}>Dependency Guardian: Roll Back Repair</code> — 1-click safe restoration</span>
               </li>
             </ul>
           </div>

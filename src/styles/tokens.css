@@ -9,11 +9,11 @@
   --color-surface-dark-card: #1e293b;
   --color-surface-dark-border: #334155;
 
-  /* Typography Colors */
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #334155;
-  --color-text-muted: #64748b;
-  --color-text-subtle: #94a3b8;
+  /* Typography Colors (High-Contrast & Maximum Readability) */
+  --color-text-primary: #090d16;
+  --color-text-secondary: #243046;
+  --color-text-muted: #4b5563;
+  --color-text-subtle: #64748b;
   --color-text-inverse: #ffffff;
 
   /* Borders & Dividers */

@@ -50,12 +50,12 @@ export const FaqSection: React.FC = () => {
                   id={`faq-question-${faq.id}`}
                   style={{
                     width: '100%',
-                    padding: '1.25rem 1.5rem',
+                    padding: '1.4rem 1.75rem',
                     textAlign: 'left',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: '1rem',
+                    gap: '1.25rem',
                     backgroundColor: isOpen ? 'var(--color-surface-subtle)' : '#ffffff',
                     cursor: 'pointer',
                     transition: 'background-color var(--transition-fast)'
@@ -64,15 +64,16 @@ export const FaqSection: React.FC = () => {
                   <span
                     style={{
                       fontWeight: 700,
-                      fontSize: '1rem',
+                      fontSize: '1.0875rem',
                       color: isOpen ? 'var(--color-brand-primary)' : 'var(--color-text-primary)',
-                      lineHeight: 1.4
+                      lineHeight: 1.45,
+                      letterSpacing: '-0.015em'
                     }}
                   >
                     {faq.question}
                   </span>
                   <ChevronDown
-                    size={18}
+                    size={20}
                     style={{
                       color: isOpen ? 'var(--color-brand-primary)' : 'var(--color-text-muted)',
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -88,9 +89,9 @@ export const FaqSection: React.FC = () => {
                     role="region"
                     aria-labelledby={`faq-question-${faq.id}`}
                     style={{
-                      padding: '1.25rem 1.5rem 1.5rem 1.5rem',
-                      fontSize: '0.9375rem',
-                      lineHeight: 1.65,
+                      padding: '1.4rem 1.75rem 1.75rem 1.75rem',
+                      fontSize: '1rem',
+                      lineHeight: 1.75,
                       color: 'var(--color-text-secondary)',
                       borderTop: '1px solid var(--color-border-subtle)',
                       backgroundColor: '#ffffff'

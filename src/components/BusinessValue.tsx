@@ -56,9 +56,9 @@ export const BusinessValue: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '1.75rem',
-            marginBottom: '3.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+            gap: '2rem',
+            marginBottom: '4rem'
           }}
         >
           {pillars.map((pillar, i) => (
@@ -72,46 +72,52 @@ export const BusinessValue: React.FC = () => {
               }}
             >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <div
                     style={{
-                      width: '44px',
-                      height: '44px',
+                      width: '48px',
+                      height: '48px',
                       borderRadius: 'var(--radius-md)',
                       backgroundColor: 'var(--color-surface-muted)',
                       border: '1px solid var(--color-border-subtle)',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center'
+                      justifyContent: 'center',
+                      boxShadow: 'var(--shadow-xs)'
                     }}
                   >
                     {pillar.icon}
                   </div>
                   <span
                     style={{
-                      fontSize: '0.6875rem',
+                      fontSize: '0.72rem',
+                      fontFamily: 'var(--font-mono)',
                       fontWeight: 700,
                       textTransform: 'uppercase',
-                      letterSpacing: '0.04em',
-                      color: 'var(--color-text-muted)'
+                      letterSpacing: '0.05em',
+                      color: 'var(--color-text-secondary)',
+                      backgroundColor: 'rgba(15, 23, 42, 0.05)',
+                      padding: '0.2rem 0.55rem',
+                      borderRadius: 'var(--radius-xs)',
+                      border: '1px solid var(--color-border-default)'
                     }}
                   >
                     {pillar.target}
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--color-text-primary)' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, marginBottom: '0.85rem', color: 'var(--color-text-primary)', letterSpacing: '-0.025em' }}>
                   {pillar.title}
                 </h3>
 
-                <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-secondary)', lineHeight: 1.7, marginBottom: '1.75rem' }}>
                   {pillar.summary}
                 </p>
 
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                   {pillar.bulletPoints.map((bp, bidx) => (
-                    <li key={bidx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.8125rem', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
-                      <Check size={14} style={{ color: 'var(--color-success)', flexShrink: 0, marginTop: '3px' }} />
+                    <li key={bidx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                      <Check size={16} style={{ color: 'var(--color-success)', flexShrink: 0, marginTop: '3px' }} />
                       <span>{bp}</span>
                     </li>
                   ))}
@@ -124,17 +130,18 @@ export const BusinessValue: React.FC = () => {
         {/* Clear Distinction Banner: 4 Distinct Stages */}
         <div
           style={{
-            backgroundColor: 'var(--color-surface-subtle)',
+            backgroundColor: 'rgba(238, 242, 255, 0.55)',
             borderRadius: 'var(--radius-xl)',
-            padding: '2rem',
-            border: '1px solid var(--color-border-default)'
+            padding: '2.5rem',
+            border: '1px solid rgba(129, 140, 248, 0.35)',
+            boxShadow: 'var(--shadow-xs)'
           }}
         >
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 1.5rem auto' }}>
-            <h4 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '0.5rem' }}>
+          <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 2rem auto' }}>
+            <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-text-primary)', marginBottom: '0.65rem', letterSpacing: '-0.02em' }}>
               Disciplined Separation of Concerns
             </h4>
-            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
+            <p style={{ fontSize: '1rem', color: 'var(--color-text-secondary)', lineHeight: 1.65 }}>
               Dependency Guardian deliberately separates each phase of incident lifecycle to eliminate dangerous assumptions:
             </p>
           </div>
@@ -142,43 +149,43 @@ export const BusinessValue: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1.25rem',
               textAlign: 'center'
             }}
           >
-            <div style={{ backgroundColor: '#ffffff', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border-subtle)' }}>
-              <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--color-brand-primary)', marginBottom: '0.25rem' }}>
+            <div style={{ backgroundColor: '#ffffff', padding: '1.35rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)', boxShadow: 'var(--shadow-xs)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.975rem', color: 'var(--color-brand-primary)', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>
                 1. Detect Change
               </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+              <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
                 Identifies observed difference from baseline
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#ffffff', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border-subtle)' }}>
-              <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--color-brand-primary)', marginBottom: '0.25rem' }}>
+            <div style={{ backgroundColor: '#ffffff', padding: '1.35rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)', boxShadow: 'var(--shadow-xs)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.975rem', color: 'var(--color-brand-primary)', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>
                 2. Map Impact
               </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+              <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
                 Traces declared workflows, files, and tests
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#ffffff', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border-subtle)' }}>
-              <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--color-brand-primary)', marginBottom: '0.25rem' }}>
+            <div style={{ backgroundColor: '#ffffff', padding: '1.35rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)', boxShadow: 'var(--shadow-xs)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.975rem', color: 'var(--color-brand-primary)', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>
                 3. Propose Fix
               </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+              <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
                 Presents adapter diff with explicit assumptions
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#ffffff', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border-subtle)' }}>
-              <div style={{ fontWeight: 700, fontSize: '0.875rem', color: 'var(--color-brand-primary)', marginBottom: '0.25rem' }}>
+            <div style={{ backgroundColor: '#ffffff', padding: '1.35rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-subtle)', boxShadow: 'var(--shadow-xs)' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.975rem', color: 'var(--color-brand-primary)', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>
                 4. Validate & Approve
               </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+              <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55 }}>
                 Sandboxed tests must pass before developer signs off
               </div>
             </div>

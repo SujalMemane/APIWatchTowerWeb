@@ -63,9 +63,9 @@ export const CapabilitiesGrid: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '0.5rem',
+            gap: '0.625rem',
             flexWrap: 'wrap',
-            marginBottom: '2.5rem'
+            marginBottom: '3rem'
           }}
         >
           {categories.map((cat) => (
@@ -73,15 +73,16 @@ export const CapabilitiesGrid: React.FC = () => {
               key={cat}
               onClick={() => setActiveFilter(cat)}
               style={{
-                fontSize: '0.8125rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
-                padding: '0.35rem 0.85rem',
+                padding: '0.45rem 1.1rem',
                 borderRadius: 'var(--radius-full)',
                 backgroundColor: activeFilter === cat ? 'var(--color-brand-primary)' : 'var(--color-surface-card)',
                 color: activeFilter === cat ? '#ffffff' : 'var(--color-text-secondary)',
                 border: `1px solid ${activeFilter === cat ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`,
                 cursor: 'pointer',
-                transition: 'all var(--transition-fast)'
+                transition: 'all var(--transition-fast)',
+                boxShadow: activeFilter === cat ? '0 2px 8px var(--color-brand-glow)' : 'var(--shadow-xs)'
               }}
             >
               {cat}
@@ -93,8 +94,8 @@ export const CapabilitiesGrid: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
+            gap: '1.75rem'
           }}
         >
           {filteredCapabilities.map((cap) => (
@@ -126,17 +127,18 @@ export const CapabilitiesGrid: React.FC = () => {
               />
               <div style={{ position: 'relative', zIndex: 1 }}>
                 {/* Top Badge & Icon */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <div
                     style={{
-                      width: '44px',
-                      height: '44px',
+                      width: '48px',
+                      height: '48px',
                       borderRadius: 'var(--radius-md)',
                       backgroundColor: 'var(--color-surface-muted)',
                       border: '1px solid var(--color-border-subtle)',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center'
+                      justifyContent: 'center',
+                      boxShadow: 'var(--shadow-xs)'
                     }}
                   >
                     {getIcon(cap.iconName)}
@@ -144,12 +146,13 @@ export const CapabilitiesGrid: React.FC = () => {
 
                   <span
                     style={{
-                      fontSize: '0.6875rem',
+                      fontSize: '0.72rem',
+                      fontFamily: 'var(--font-mono)',
                       fontWeight: 700,
                       backgroundColor: 'var(--color-brand-surface)',
                       color: 'var(--color-brand-primary)',
-                      padding: '0.2rem 0.55rem',
-                      borderRadius: '4px',
+                      padding: '0.25rem 0.65rem',
+                      borderRadius: 'var(--radius-xs)',
                       border: '1px solid var(--color-brand-border)',
                       letterSpacing: '0.04em'
                     }}
@@ -159,10 +162,10 @@ export const CapabilitiesGrid: React.FC = () => {
                 </div>
 
                 {/* Title & Description */}
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '0.6rem', color: 'var(--color-text-primary)' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.75rem', color: 'var(--color-text-primary)', letterSpacing: '-0.025em' }}>
                   {cap.title}
                 </h3>
-                <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--color-text-secondary)', marginBottom: '1.25rem' }}>
+                <p style={{ fontSize: '0.975rem', lineHeight: 1.65, color: 'var(--color-text-secondary)', marginBottom: '1.5rem' }}>
                   {cap.description}
                 </p>
               </div>
@@ -171,15 +174,16 @@ export const CapabilitiesGrid: React.FC = () => {
               <div
                 style={{
                   borderTop: '1px solid var(--color-border-subtle)',
-                  paddingTop: '0.85rem',
+                  paddingTop: '1rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.75rem',
-                  color: 'var(--color-text-muted)'
+                  gap: '0.5rem',
+                  fontSize: '0.8125rem',
+                  fontWeight: 500,
+                  color: 'var(--color-text-secondary)'
                 }}
               >
-                <Check size={13} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
+                <Check size={15} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
                 <span>{cap.metricOrEvidence}</span>
               </div>
             </div>

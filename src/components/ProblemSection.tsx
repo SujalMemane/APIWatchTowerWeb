@@ -37,7 +37,7 @@ export const ProblemSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem' }}>
+          <div className="section-eyebrow">
             <span>FAILURE MODE ANALYSIS</span>
           </div>
           <h2 className="section-title">Small API changes. Expensive engineering surprises.</h2>
@@ -50,8 +50,8 @@ export const ProblemSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '1.75rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+            gap: '2rem'
           }}
         >
           {problems.map((item, idx) => (
@@ -67,11 +67,11 @@ export const ProblemSection: React.FC = () => {
             >
               <div>
                 {/* Icon & Problem Tag */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <div
                     style={{
-                      width: '46px',
-                      height: '46px',
+                      width: '48px',
+                      height: '48px',
                       borderRadius: 'var(--radius-md)',
                       backgroundColor: 'var(--color-surface-muted)',
                       border: '1px solid var(--color-border-subtle)',
@@ -84,11 +84,16 @@ export const ProblemSection: React.FC = () => {
                   </div>
                   <span
                     style={{
-                      fontSize: '0.6875rem',
+                      fontSize: '0.72rem',
+                      fontFamily: 'var(--font-mono)',
                       fontWeight: 700,
                       textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      color: 'var(--color-text-muted)'
+                      letterSpacing: '0.04em',
+                      backgroundColor: 'rgba(15, 23, 42, 0.05)',
+                      border: '1px solid var(--color-border-default)',
+                      padding: '0.2rem 0.55rem',
+                      borderRadius: 'var(--radius-xs)',
+                      color: 'var(--color-text-secondary)'
                     }}
                   >
                     {item.tag}
@@ -96,10 +101,10 @@ export const ProblemSection: React.FC = () => {
                 </div>
 
                 {/* Problem Title & Body */}
-                <h3 style={{ fontSize: '1.1875rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--color-text-primary)' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, marginBottom: '0.85rem', color: 'var(--color-text-primary)', letterSpacing: '-0.025em' }}>
                   {item.title}
                 </h3>
-                <p style={{ fontSize: '0.9375rem', lineHeight: 1.6, marginBottom: '1.5rem', color: 'var(--color-text-secondary)' }}>
+                <p style={{ fontSize: '1.0625rem', lineHeight: 1.7, marginBottom: '1.75rem', color: 'var(--color-text-secondary)' }}>
                   {item.description}
                 </p>
               </div>
@@ -107,23 +112,23 @@ export const ProblemSection: React.FC = () => {
               {/* Solution Mapping Subcard */}
               <div
                 style={{
-                  backgroundColor: 'var(--color-surface-subtle)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '1.125rem',
-                  border: '1px solid var(--color-border-subtle)',
+                  backgroundColor: 'rgba(238, 242, 255, 0.55)',
+                  borderRadius: 'var(--radius-lg)',
+                  padding: '1.35rem',
+                  border: '1px solid rgba(129, 140, 248, 0.35)',
                   marginTop: 'auto'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.35rem' }}>
-                  <CheckCircle2 size={14} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.6875rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-brand-primary)', letterSpacing: '0.04em' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.4rem' }}>
+                  <CheckCircle2 size={15} style={{ color: 'var(--color-success)', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-brand-primary)', letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
                     {item.solutionTag}
                   </span>
                 </div>
-                <div style={{ fontWeight: 600, fontSize: '0.875rem', color: 'var(--color-text-primary)', marginBottom: '0.25rem' }}>
+                <div style={{ fontWeight: 700, fontSize: '0.975rem', color: 'var(--color-text-primary)', marginBottom: '0.35rem' }}>
                   {item.solutionTitle}
                 </div>
-                <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, margin: 0 }}>
                   {item.solutionDescription}
                 </p>
               </div>

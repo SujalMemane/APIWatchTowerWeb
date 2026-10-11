@@ -31,41 +31,41 @@ export const Footer: React.FC = () => {
           }}
         >
           {/* Brand Info */}
-          <div style={{ maxWidth: '320px' }}>
-            <div style={{ marginBottom: '1rem' }}>
-              <Logo size={28} />
+          <div style={{ maxWidth: '340px' }}>
+            <div style={{ marginBottom: '1.25rem' }}>
+              <Logo size={30} />
             </div>
-            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.65, marginBottom: '1.25rem' }}>
               A developer-focused dependency compatibility monitoring and assisted repair tool for external APIs and services.
             </p>
-            <div style={{ fontSize: '0.75rem', color: 'var(--color-text-subtle)' }}>
+            <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)' }}>
               Built for HACKWAVE • Local-First Architecture
             </div>
           </div>
 
           {/* Column 1: Product Navigation */}
           <div>
-            <div style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+            <div style={{ fontSize: '0.875rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.06em', marginBottom: '1.25rem' }}>
               Product
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.9375rem' }}>
               <li>
-                <a href="#how-it-works" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#how-it-works" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   How It Works
                 </a>
               </li>
               <li>
-                <a href="#capabilities" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#capabilities" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   Product Capabilities
                 </a>
               </li>
               <li>
-                <a href="#interactive-demo" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#interactive-demo" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   Interactive API Comparison
                 </a>
               </li>
               <li>
-                <a href="#extension-showcase" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#extension-showcase" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   VS Code Extension
                 </a>
               </li>
@@ -74,27 +74,27 @@ export const Footer: React.FC = () => {
 
           {/* Column 2: Architecture & Docs */}
           <div>
-            <div style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+            <div style={{ fontSize: '0.875rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.06em', marginBottom: '1.25rem' }}>
               Architecture & Docs
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.9375rem' }}>
               <li>
-                <a href="#architecture" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#architecture" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   System Architecture
                 </a>
               </li>
               <li>
-                <a href="#developer-docs" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#developer-docs" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   Configuration YAML Contract
                 </a>
               </li>
               <li>
-                <a href="#developer-docs" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#developer-docs" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   Local Backend API Endpoints
                 </a>
               </li>
               <li>
-                <a href="#faq" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
+                <a href="#faq" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color var(--transition-fast)' }} onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')} onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}>
                   Frequently Asked Questions
                 </a>
               </li>
@@ -103,20 +103,20 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: Safety & Environment */}
           <div>
-            <div style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+            <div style={{ fontSize: '0.875rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.06em', marginBottom: '1.25rem' }}>
               Environment & Safety
             </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              <li style={{ color: 'var(--color-text-muted)' }}>
-                FastAPI Local Host: <code>127.0.0.1:8765</code>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.875rem' }}>
+              <li style={{ color: 'var(--color-text-secondary)' }}>
+                FastAPI Local Host: <code style={{ backgroundColor: 'var(--color-surface-muted)', padding: '0.15rem 0.4rem', borderRadius: '4px', border: '1px solid var(--color-border-subtle)' }}>127.0.0.1:8765</code>
               </li>
-              <li style={{ color: 'var(--color-text-muted)' }}>
+              <li style={{ color: 'var(--color-text-secondary)' }}>
                 Persistence: Local SQLite DB
               </li>
-              <li style={{ color: 'var(--color-text-muted)' }}>
+              <li style={{ color: 'var(--color-text-secondary)' }}>
                 Zero External Telemetry by Default
               </li>
-              <li style={{ color: 'var(--color-text-muted)' }}>
+              <li style={{ color: 'var(--color-text-secondary)' }}>
                 Reversible Rollback Storage
               </li>
             </ul>

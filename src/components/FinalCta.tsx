@@ -45,17 +45,18 @@ export const FinalCta: React.FC = () => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                fontSize: '0.75rem',
+                gap: '0.5rem',
+                fontSize: '0.8125rem',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
-                color: '#a5b4fc',
-                backgroundColor: 'rgba(99, 102, 241, 0.2)',
-                border: '1px solid rgba(129, 140, 248, 0.3)',
-                padding: '0.25rem 0.75rem',
+                color: '#c7d2fe',
+                backgroundColor: 'rgba(99, 102, 241, 0.25)',
+                border: '1px solid rgba(129, 140, 248, 0.4)',
+                padding: '0.35rem 0.95rem',
                 borderRadius: '9999px',
-                marginBottom: '1.5rem'
+                marginBottom: '1.75rem',
+                fontFamily: 'var(--font-mono)'
               }}
             >
               Get Started with the MVP
@@ -63,11 +64,12 @@ export const FinalCta: React.FC = () => {
 
             <h2
               style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontSize: 'clamp(2.25rem, 4.5vw, 3.25rem)',
                 fontWeight: 800,
                 color: '#ffffff',
-                marginBottom: '1.25rem',
-                letterSpacing: '-0.03em'
+                marginBottom: '1.35rem',
+                letterSpacing: '-0.035em',
+                lineHeight: 1.15
               }}
             >
               Know what changed before your application pays the price.
@@ -75,10 +77,10 @@ export const FinalCta: React.FC = () => {
 
             <p
               style={{
-                fontSize: '1.125rem',
-                color: '#94a3b8',
-                lineHeight: 1.6,
-                marginBottom: '2.5rem'
+                fontSize: '1.2rem',
+                color: '#cbd5e1',
+                lineHeight: 1.7,
+                marginBottom: '2.75rem'
               }}
             >
               Explore Dependency Guardian and see how API change intelligence can fit into your development workflow.

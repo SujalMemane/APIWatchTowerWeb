@@ -46,85 +46,93 @@ export const DeveloperSection: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '0.5rem',
+            gap: '0.625rem',
             flexWrap: 'wrap',
-            marginBottom: '2rem'
+            marginBottom: '2.5rem'
           }}
         >
           <button
             onClick={() => setActiveTab('config')}
             style={{
-              padding: '0.6rem 1.25rem',
+              padding: '0.7rem 1.35rem',
               borderRadius: 'var(--radius-md)',
               fontWeight: 600,
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.55rem',
               backgroundColor: activeTab === 'config' ? 'var(--color-brand-primary)' : 'var(--color-surface-card)',
               color: activeTab === 'config' ? '#ffffff' : 'var(--color-text-secondary)',
-              border: `1px solid ${activeTab === 'config' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`
+              border: `1px solid ${activeTab === 'config' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`,
+              boxShadow: activeTab === 'config' ? '0 4px 12px var(--color-brand-glow)' : 'var(--shadow-xs)',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            <FileCode size={16} /> Configuration Contract (YAML)
+            <FileCode size={17} /> Configuration Contract (YAML)
           </button>
 
           <button
             onClick={() => setActiveTab('quickstart')}
             style={{
-              padding: '0.6rem 1.25rem',
+              padding: '0.7rem 1.35rem',
               borderRadius: 'var(--radius-md)',
               fontWeight: 600,
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.55rem',
               backgroundColor: activeTab === 'quickstart' ? 'var(--color-brand-primary)' : 'var(--color-surface-card)',
               color: activeTab === 'quickstart' ? '#ffffff' : 'var(--color-text-secondary)',
-              border: `1px solid ${activeTab === 'quickstart' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`
+              border: `1px solid ${activeTab === 'quickstart' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`,
+              boxShadow: activeTab === 'quickstart' ? '0 4px 12px var(--color-brand-glow)' : 'var(--shadow-xs)',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            <Terminal size={16} /> Quickstart Guide
+            <Terminal size={17} /> Quickstart Guide
           </button>
 
           <button
             onClick={() => setActiveTab('api')}
             style={{
-              padding: '0.6rem 1.25rem',
+              padding: '0.7rem 1.35rem',
               borderRadius: 'var(--radius-md)',
               fontWeight: 600,
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.55rem',
               backgroundColor: activeTab === 'api' ? 'var(--color-brand-primary)' : 'var(--color-surface-card)',
               color: activeTab === 'api' ? '#ffffff' : 'var(--color-text-secondary)',
-              border: `1px solid ${activeTab === 'api' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`
+              border: `1px solid ${activeTab === 'api' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`,
+              boxShadow: activeTab === 'api' ? '0 4px 12px var(--color-brand-glow)' : 'var(--shadow-xs)',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            <Server size={16} /> Local API Contract
+            <Server size={17} /> Local API Contract
           </button>
 
           <button
             onClick={() => setActiveTab('safety')}
             style={{
-              padding: '0.6rem 1.25rem',
+              padding: '0.7rem 1.35rem',
               borderRadius: 'var(--radius-md)',
               fontWeight: 600,
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.55rem',
               backgroundColor: activeTab === 'safety' ? 'var(--color-brand-primary)' : 'var(--color-surface-card)',
               color: activeTab === 'safety' ? '#ffffff' : 'var(--color-text-secondary)',
-              border: `1px solid ${activeTab === 'safety' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`
+              border: `1px solid ${activeTab === 'safety' ? 'var(--color-brand-primary)' : 'var(--color-border-default)'}`,
+              boxShadow: activeTab === 'safety' ? '0 4px 12px var(--color-brand-glow)' : 'var(--shadow-xs)',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            <ShieldCheck size={16} /> Validation & Safety Rules
+            <ShieldCheck size={17} /> Validation & Safety Rules
           </button>
         </div>
 

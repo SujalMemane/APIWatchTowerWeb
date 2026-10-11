@@ -96,17 +96,17 @@ export const WorkflowProgression: React.FC = () => {
             backgroundColor: '#ffffff',
             borderRadius: 'var(--radius-xl)',
             border: '1px solid var(--color-border-default)',
-            boxShadow: 'var(--shadow-lg)',
+            boxShadow: 'var(--shadow-xl)',
             overflow: 'hidden',
             display: 'grid',
-            gridTemplateColumns: 'minmax(320px, 1fr) minmax(340px, 1.2fr)'
+            gridTemplateColumns: 'minmax(340px, 1fr) minmax(360px, 1.25fr)'
           }}
           className="workflow-detail-grid"
         >
           {/* Left Side: Step Narrative */}
           <div
             style={{
-              padding: '2.5rem',
+              padding: '2.75rem',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -114,40 +114,41 @@ export const WorkflowProgression: React.FC = () => {
             }}
           >
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.25rem' }}>
                 <div
                   style={{
-                    width: '40px',
-                    height: '40px',
+                    width: '46px',
+                    height: '46px',
                     borderRadius: 'var(--radius-md)',
                     backgroundColor: 'var(--color-brand-surface)',
                     color: 'var(--color-brand-primary)',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    boxShadow: '0 2px 6px rgba(79, 70, 229, 0.12)'
                   }}
                 >
                   {stepIcons[selectedStepIndex]}
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-brand-primary)', letterSpacing: '0.05em' }}>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-brand-primary)', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>
                     Step {currentStep.stepNumber} of 5
                   </span>
-                  <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)' }}>{currentStep.subtitle}</div>
+                  <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', fontWeight: 500 }}>{currentStep.subtitle}</div>
                 </div>
               </div>
 
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--color-text-primary)' }}>
+              <h3 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '1rem', color: 'var(--color-text-primary)', letterSpacing: '-0.03em', lineHeight: 1.25 }}>
                 {currentStep.title}
               </h3>
 
-              <p style={{ fontSize: '1rem', lineHeight: 1.65, color: 'var(--color-text-secondary)', marginBottom: '1.75rem' }}>
+              <p style={{ fontSize: '1.0625rem', lineHeight: 1.75, color: 'var(--color-text-secondary)', marginBottom: '2rem' }}>
                 {currentStep.description}
               </p>
 
               {/* Status Badge */}
-              <div style={{ marginBottom: '1.5rem' }}>
-                <span className="status-pill success" style={{ padding: '0.35rem 0.75rem', fontSize: '0.8125rem' }}>
+              <div style={{ marginBottom: '1.75rem' }}>
+                <span className="status-pill success" style={{ padding: '0.45rem 0.95rem', fontSize: '0.875rem' }}>
                   <span className="status-dot"></span> State: {currentStep.statusBadge}
                 </span>
               </div>
@@ -156,21 +157,21 @@ export const WorkflowProgression: React.FC = () => {
             {/* Safety Guarantee Callout */}
             <div
               style={{
-                backgroundColor: 'var(--color-surface-subtle)',
+                backgroundColor: 'rgba(238, 242, 255, 0.55)',
                 borderRadius: 'var(--radius-md)',
-                padding: '1rem',
-                border: '1px solid var(--color-border-subtle)',
+                padding: '1.25rem',
+                border: '1px solid rgba(129, 140, 248, 0.35)',
                 display: 'flex',
                 alignItems: 'flex-start',
-                gap: '0.625rem'
+                gap: '0.75rem'
               }}
             >
-              <Shield size={16} style={{ color: 'var(--color-brand-primary)', flexShrink: 0, marginTop: '2px' }} />
+              <Shield size={18} style={{ color: 'var(--color-brand-primary)', flexShrink: 0, marginTop: '2px' }} />
               <div>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-text-primary)', letterSpacing: '0.04em' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-brand-primary)', letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
                   Safety Guarantee
                 </div>
-                <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', lineHeight: 1.45 }}>
+                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.55, marginTop: '0.2rem' }}>
                   {currentStep.safetyNote}
                 </div>
               </div>
@@ -181,26 +182,28 @@ export const WorkflowProgression: React.FC = () => {
           <div
             style={{
               backgroundColor: '#090d16',
-              padding: '2rem',
+              padding: '2.5rem',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               color: '#e2e8f0'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>
-                <Code2 size={14} style={{ color: '#818cf8' }} />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: '#cbd5e1', fontSize: '0.8125rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                <Code2 size={16} style={{ color: '#818cf8' }} />
                 <span>{currentStep.technicalArtifact.label}</span>
               </div>
               <span
                 style={{
-                  fontSize: '0.6875rem',
+                  fontSize: '0.72rem',
                   fontFamily: 'var(--font-mono)',
+                  fontWeight: 700,
                   backgroundColor: '#1e293b',
-                  color: '#94a3b8',
-                  padding: '0.15rem 0.5rem',
-                  borderRadius: '4px'
+                  color: '#93c5fd',
+                  padding: '0.2rem 0.6rem',
+                  borderRadius: '4px',
+                  border: '1px solid #334155'
                 }}
               >
                 {currentStep.technicalArtifact.type.toUpperCase()}
@@ -210,14 +213,14 @@ export const WorkflowProgression: React.FC = () => {
             <pre
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.8125rem',
-                lineHeight: 1.55,
+                fontSize: '0.875rem',
+                lineHeight: 1.65,
                 backgroundColor: '#05070d',
-                padding: '1.25rem',
-                borderRadius: 'var(--radius-md)',
+                padding: '1.5rem',
+                borderRadius: 'var(--radius-lg)',
                 border: '1px solid #1e293b',
                 overflowX: 'auto',
-                color: '#cbd5e1'
+                color: '#e2e8f0'
               }}
             >
               <code>{currentStep.technicalArtifact.snippet}</code>

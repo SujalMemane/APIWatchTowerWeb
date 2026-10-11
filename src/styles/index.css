@@ -14,9 +14,14 @@ html {
   color: var(--color-text-primary);
   background-color: var(--color-canvas);
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1.25rem);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+section[id], div[id] {
+  scroll-margin-top: calc(var(--nav-height) + 1.25rem);
 }
 
 body {

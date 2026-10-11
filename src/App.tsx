@@ -35,7 +35,7 @@ export const App: React.FC = () => {
       <Navbar onOpenQuickstart={handleOpenQuickstart} />
 
       {/* Main Content */}
-      <main id="main-content" style={{ flex: 1 }}>
+      <main id="main-content" style={{ flex: 1, position: 'relative', zIndex: 2 }}>
         {/* 1. Hero Section */}
         <HeroSection />
 

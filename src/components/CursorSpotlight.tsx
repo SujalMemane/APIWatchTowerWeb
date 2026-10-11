@@ -1,43 +1,52 @@
 import React, { useEffect, useState } from 'react';
 
 export const CursorSpotlight: React.FC = () => {
-  const [pos, setPos] = useState({ x: -100, y: -100 });
-  const [smoothPos, setSmoothPos] = useState({ x: -100, y: -100 });
+  const [smoothPos, setSmoothPos] = useState({ x: -300, y: -300 });
   const [isVisible, setIsVisible] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  const [cardGlowStyle, setCardGlowStyle] = useState<React.CSSProperties | null>(null);
 
   useEffect(() => {
     let animationFrameId: number;
+    let targetX = -300;
+    let targetY = -300;
 
     const handleMouseMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
+      targetX = e.clientX;
+      targetY = e.clientY;
       if (!isVisible) setIsVisible(true);
 
-      // Check if hovering over clickable/interactive elements
+      // Detect if hovering over a card or interactive component
       const target = e.target as HTMLElement | null;
-      if (target) {
-        const interactive = target.closest('a, button, input, select, textarea, [role="button"], .interactive, .btn, .feature-card, .telemetry-card');
-        setIsHovering(!!interactive);
+      const card = target?.closest('.feature-card, .telemetry-card, .workflow-detail-grid, button, a.btn, .btn, pre, .terminal-window');
+      
+      if (card) {
+        const rect = card.getBoundingClientRect();
+        setCardGlowStyle({
+          left: `${rect.left + rect.width / 2}px`,
+          top: `${rect.top + rect.height / 2}px`,
+          width: `${rect.width + 36}px`,
+          height: `${rect.height + 36}px`,
+          opacity: 1
+        });
+      } else {
+        setCardGlowStyle(null);
       }
     };
 
     const handleMouseLeave = () => {
       setIsVisible(false);
+      setCardGlowStyle(null);
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
 
-    // Smooth lerp animation loop for trailing ring and ambient spotlight
+    // Smooth lerp loop for the ambient spotlight
     const loop = () => {
-      setSmoothPos((prev) => {
-        const dx = pos.x - prev.x;
-        const dy = pos.y - prev.y;
-        return {
-          x: prev.x + dx * 0.18,
-          y: prev.y + dy * 0.18
-        };
-      });
+      setSmoothPos((prev) => ({
+        x: prev.x + (targetX - prev.x) * 0.16,
+        y: prev.y + (targetY - prev.y) * 0.16
+      }));
       animationFrameId = requestAnimationFrame(loop);
     };
     animationFrameId = requestAnimationFrame(loop);
@@ -47,7 +56,7 @@ export const CursorSpotlight: React.FC = () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [pos, isVisible]);
+  }, [isVisible]);
 
   if (!isVisible) return null;
 
@@ -61,12 +70,12 @@ export const CursorSpotlight: React.FC = () => {
         right: 0,
         bottom: 0,
         pointerEvents: 'none',
-        zIndex: 99990,
+        zIndex: 1, // Rendered below #main-content (zIndex: 2) so text and cards stay crisp and un-obscured
         overflow: 'hidden'
       }}
       aria-hidden="true"
     >
-      {/* 1. Dark Purple Ambient Spotlight Glow across the entire website */}
+      {/* 1. Global Ambient Dark Purple Spotlight Glow behind content */}
       <div
         style={{
           position: 'fixed',
@@ -75,36 +84,29 @@ export const CursorSpotlight: React.FC = () => {
           width: '100vw',
           height: '100vh',
           background: `
-            radial-gradient(240px circle at ${smoothPos.x}px ${smoothPos.y}px, rgba(109, 40, 217, 0.16), rgba(91, 33, 182, 0.12) 45%, transparent 70%),
-            radial-gradient(520px circle at ${smoothPos.x}px ${smoothPos.y}px, rgba(124, 58, 237, 0.10), rgba(79, 70, 229, 0.07) 50%, transparent 68%),
-            radial-gradient(800px circle at ${smoothPos.x}px ${smoothPos.y}px, rgba(139, 92, 246, 0.05), transparent 65%)
+            radial-gradient(380px circle at ${smoothPos.x}px ${smoothPos.y}px, rgba(124, 58, 237, 0.20), rgba(99, 102, 241, 0.12) 40%, transparent 70%),
+            radial-gradient(780px circle at ${smoothPos.x}px ${smoothPos.y}px, rgba(109, 40, 217, 0.10), rgba(139, 92, 246, 0.05) 55%, transparent 70%)
           `,
-          mixBlendMode: 'multiply',
           pointerEvents: 'none',
-          zIndex: 99991,
-          transition: 'opacity 250ms ease'
+          transition: 'opacity 300ms ease'
         }}
       />
 
-      {/* 2. Sleek Dark Purple Trailing Cursor Ring (No inner black circle) */}
-      <div
-        style={{
-          position: 'fixed',
-          top: smoothPos.y,
-          left: smoothPos.x,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 1.4 : 1})`,
-          width: '32px',
-          height: '32px',
-          borderRadius: '50%',
-          border: '2px solid rgba(109, 40, 217, 0.8)', // Elegant Dark Purple
-          backgroundColor: isHovering ? 'rgba(124, 58, 237, 0.22)' : 'rgba(109, 40, 217, 0.09)',
-          boxShadow: '0 0 16px rgba(124, 58, 237, 0.35), inset 0 0 8px rgba(139, 92, 246, 0.22)',
-          pointerEvents: 'none',
-          zIndex: 99998,
-          transition: 'transform 180ms cubic-bezier(0.2, 0.9, 0.3, 1), background-color 150ms ease, border-color 150ms ease, width 150ms ease, height 150ms ease'
-        }}
-      />
+      {/* 2. Interactive Underglow Shadow: Cast directly below hovered cards and components */}
+      {cardGlowStyle && (
+        <div
+          style={{
+            position: 'fixed',
+            transform: 'translate(-50%, -50%)',
+            borderRadius: 'var(--radius-xl, 24px)',
+            background: 'radial-gradient(ellipse at center, rgba(124, 58, 237, 0.35) 0%, rgba(99, 102, 241, 0.20) 50%, transparent 75%)',
+            filter: 'blur(22px)',
+            pointerEvents: 'none',
+            transition: 'all 180ms ease-out',
+            ...cardGlowStyle
+          }}
+        />
+      )}
     </div>
   );
 };
-

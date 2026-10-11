@@ -9,7 +9,7 @@ import {
   Clock, 
   Check, 
   RotateCcw,
-  Sparkles
+  Activity
 } from 'lucide-react';
 import { API_SCENARIOS } from '../data/mockData';
 
@@ -471,8 +471,8 @@ export const ProductMockup: React.FC = () => {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Sparkles size={13} style={{ color: 'var(--color-brand-primary)' }} />
-            <span>Interactive Simulator: Click timeline steps or test the approval button above.</span>
+            <Activity size={13} style={{ color: 'var(--color-brand-primary)' }} />
+            <span>Interactive Runtime Simulator: Click lifecycle steps or test the approval button above.</span>
           </div>
           <div>
             <span>Rollback safety: Target file original hash preserved in SQLite.</span>

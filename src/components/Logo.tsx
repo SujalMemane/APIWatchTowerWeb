@@ -68,7 +68,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 28, showText = true, classNam
                 border: '1px solid var(--color-brand-border)'
               }}
             >
-              v1.1
+              HACKWAVE
             </span>
           </div>
           <span style={{ fontSize: '0.6875rem', color: 'var(--color-text-muted)', fontWeight: 500, letterSpacing: '0.01em' }}>

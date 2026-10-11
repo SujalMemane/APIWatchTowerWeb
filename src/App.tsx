@@ -1,3 +1,4 @@
+import { AntigravityCanvas } from './components/AntigravityCanvas';
 import { CursorSpotlight } from './components/CursorSpotlight';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { Navbar } from './components/Navbar';
@@ -24,7 +25,10 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="app-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="app-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      {/* Antigravity Floating Particles & Graph Canvas */}
+      <AntigravityCanvas />
+
       {/* Background Interactive Cursor Spotlight */}
       <CursorSpotlight />
 

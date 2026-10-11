@@ -4,29 +4,29 @@ import { EyeOff, SearchSlash, AlertOctagon, CheckCircle2 } from 'lucide-react';
 export const ProblemSection: React.FC = () => {
   const problems = [
     {
-      icon: <EyeOff size={24} style={{ color: 'var(--color-danger)' }} />,
-      tag: 'The Detection Gap',
+      icon: <EyeOff size={22} style={{ color: 'var(--color-danger)' }} />,
+      tag: 'INCIDENT_CLASS: 01_UNDETECTED_SCHEMA_DRIFT',
       title: 'Breaking changes go unnoticed',
       description: 'Upstream API providers rename response fields, alter pagination contracts, or change data types without advance deprecation notices. A response stays valid JSON, but silent errors crash downstream flows.',
-      solutionTag: 'Dependency Guardian Solution',
+      solutionTag: 'GUARDIAN PROTOCOL',
       solutionTitle: 'Preserved Baselines & Active Probes',
       solutionDescription: 'Captures normalized known-good responses in an immutable SQLite store. Runs deterministic probes to surface schema mutations before users report broken workflows.'
     },
     {
-      icon: <SearchSlash size={24} style={{ color: 'var(--color-warning)' }} />,
-      tag: 'The Investigation Sink',
+      icon: <SearchSlash size={22} style={{ color: 'var(--color-warning)' }} />,
+      tag: 'INCIDENT_CLASS: 02_UNTRACEABLE_IMPACT_SURFACE',
       title: 'Debugging consumes engineering hours',
       description: 'When an endpoint breaks, engineers waste hours opening raw network logs, diffing payloads manually, grepping across repositories, and guessing which features depend on changed fields.',
-      solutionTag: 'Dependency Guardian Solution',
+      solutionTag: 'GUARDIAN PROTOCOL',
       solutionTitle: 'Configured Workflow Impact Mapping',
       solutionDescription: 'Correlates observed payload mutations directly to declared workflows, source files, and unit test files. See exactly which file line is vulnerable in seconds.'
     },
     {
-      icon: <AlertOctagon size={24} style={{ color: 'var(--color-brand-primary)' }} />,
-      tag: 'The Reliability Risk',
+      icon: <AlertOctagon size={22} style={{ color: 'var(--color-brand-primary)' }} />,
+      tag: 'INCIDENT_CLASS: 03_UNVALIDATED_HOTFIX_RISK',
       title: 'Fixes need evidence and validation',
       description: 'Quick-fix patches often introduce regressions or make faulty assumptions about semantic equivalence. Blindly applying AI-generated code without verified test runs introduces severe production risk.',
-      solutionTag: 'Dependency Guardian Solution',
+      solutionTag: 'GUARDIAN PROTOCOL',
       solutionTitle: 'Pre-Apply Sandbox Validation & Safety Brakes',
       solutionDescription: 'Generates focused compatibility adapters with explicit assumptions, runs test suites with timeouts, halts on semantic ambiguity, and requires explicit developer sign-off.'
     }
@@ -37,8 +37,8 @@ export const ProblemSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-eyebrow">
-            <span>The Dependency Fragility Problem</span>
+          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem' }}>
+            <span>FAILURE MODE ANALYSIS</span>
           </div>
           <h2 className="section-title">Small API changes. Expensive engineering surprises.</h2>
           <p className="section-description">

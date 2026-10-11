@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, X, ArrowRight } from 'lucide-react';
+import { GitCommit, X, ArrowRight } from 'lucide-react';
 
 export const AnnouncementBar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -10,11 +10,11 @@ export const AnnouncementBar: React.FC = () => {
     <aside
       aria-label="Product Announcement"
       style={{
-        backgroundColor: '#0f172a',
+        backgroundColor: '#090d16',
         color: '#f8fafc',
         borderBottom: '1px solid #1e293b',
         fontSize: '0.8125rem',
-        padding: '0.5rem 1rem',
+        padding: '0.45rem 1rem',
         position: 'relative',
         zIndex: 50,
         transition: 'all 200ms ease'
@@ -36,22 +36,23 @@ export const AnnouncementBar: React.FC = () => {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.35rem',
-            backgroundColor: 'rgba(99, 102, 241, 0.25)',
-            border: '1px solid rgba(129, 140, 248, 0.4)',
+            backgroundColor: 'rgba(99, 102, 241, 0.18)',
+            border: '1px solid rgba(129, 140, 248, 0.35)',
             color: '#c7d2fe',
             fontWeight: 700,
             fontSize: '0.6875rem',
-            padding: '0.15rem 0.5rem',
-            borderRadius: '9999px',
+            padding: '0.15rem 0.55rem',
+            borderRadius: '4px',
             textTransform: 'uppercase',
-            letterSpacing: '0.04em'
+            letterSpacing: '0.05em',
+            fontFamily: 'var(--font-mono)'
           }}
         >
-          <Sparkles size={11} /> MVP Preview
+          <GitCommit size={11} /> PRD v1.1 SPECIFICATION
         </span>
 
-        <span style={{ color: '#e2e8f0', fontWeight: 500 }}>
-          Meet a smarter way to investigate API breaking changes.
+        <span style={{ color: '#cbd5e1', fontWeight: 500, fontSize: '0.8125rem' }}>
+          Meet a deterministic way to investigate API contract regressions.
         </span>
 
         <a

@@ -1,16 +1,15 @@
 import React from 'react';
-import { ArrowRight, Terminal, ShieldCheck, Cpu, ArrowDown, Sparkles } from 'lucide-react';
-import { Antigravity } from './Antigravity';
+import { ArrowRight, Terminal, Cpu, ArrowDown } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="section-wrapper subtle-grid-bg" style={{ paddingTop: '4.5rem', paddingBottom: '3rem' }}>
+    <section className="section-wrapper subtle-grid-bg" style={{ paddingTop: '4.5rem', paddingBottom: '3.5rem' }}>
       <div className="container" style={{ textAlign: 'center' }}>
-        {/* Eyebrow */}
+        {/* Technical Eyebrow Specification */}
         <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
-          <div className="section-eyebrow">
+          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.06em' }}>
             <span className="status-dot pulsing" style={{ color: 'var(--color-brand-primary)' }}></span>
-            <span>API CHANGE INTELLIGENCE FOR DEVELOPERS</span>
+            <span>RFC-9110 HTTP/JSON RUNTIME COMPATIBILITY MONITORING</span>
           </div>
         </div>
 
@@ -86,90 +85,38 @@ export const HeroSection: React.FC = () => {
           </a>
         </div>
 
-        {/* Truthful Trust & Principles Badge */}
+        {/* Engineering System Invariants Strip */}
         <div
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '1.5rem',
+            gap: '1.25rem',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            padding: '0.75rem 1.25rem',
-            backgroundColor: 'rgba(255, 255, 255, 0.85)',
+            padding: '0.65rem 1.25rem',
+            backgroundColor: '#ffffff',
             border: '1px solid var(--color-border-default)',
-            borderRadius: 'var(--radius-full)',
+            borderRadius: 'var(--radius-md)',
             boxShadow: 'var(--shadow-xs)',
-            fontSize: '0.8125rem',
-            color: 'var(--color-text-muted)',
-            marginBottom: '2.5rem'
+            fontSize: '0.78rem',
+            fontFamily: 'var(--font-mono)',
+            color: 'var(--color-text-secondary)'
           }}
         >
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', fontWeight: 600, color: 'var(--color-text-primary)' }}>
-            <ShieldCheck size={15} style={{ color: 'var(--color-success)' }} /> Built for developers who depend on APIs
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, color: 'var(--color-text-primary)' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--color-success)', display: 'inline-block' }} />
+            <span>ENV: LOCALHOST_LOOPBACK (127.0.0.1)</span>
           </span>
-          <span style={{ color: 'var(--color-border-hover)' }}>•</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem' }}>
-            <Cpu size={14} style={{ color: 'var(--color-brand-primary)' }} /> Deterministic rule engine
+          <span style={{ color: 'var(--color-border-hover)' }}>|</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+            <Cpu size={13} style={{ color: 'var(--color-brand-primary)' }} />
+            <span>DETECTION: DETERMINISTIC_DIFFS</span>
           </span>
-          <span style={{ color: 'var(--color-border-hover)' }}>•</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem' }}>
-            <Terminal size={14} style={{ color: 'var(--color-text-secondary)' }} /> Zero silent writes
+          <span style={{ color: 'var(--color-border-hover)' }}>|</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+            <Terminal size={13} style={{ color: 'var(--color-text-secondary)' }} />
+            <span>SAFETY: PYTEST_GATED_APPROVAL</span>
           </span>
-        </div>
-
-        {/* React Bits: Antigravity 3D Interactive Canvas */}
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '1040px',
-            height: '280px',
-            margin: '0 auto -1.5rem auto',
-            position: 'relative',
-            borderRadius: 'var(--radius-xl)',
-            overflow: 'hidden',
-            border: '1px solid var(--color-border-default)',
-            backgroundColor: 'rgba(255, 255, 255, 0.85)',
-            backdropFilter: 'blur(10px)',
-            boxShadow: 'var(--shadow-sm)'
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              top: '0.85rem',
-              left: '1rem',
-              zIndex: 10,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              fontSize: '0.6875rem',
-              fontWeight: 700,
-              color: 'var(--color-brand-primary)',
-              backgroundColor: 'rgba(255, 255, 255, 0.92)',
-              padding: '0.2rem 0.65rem',
-              borderRadius: 'var(--radius-full)',
-              border: '1px solid var(--color-brand-border)',
-              pointerEvents: 'none',
-              boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
-            }}
-          >
-            <Sparkles size={11} /> Antigravity Particle Field • Move Cursor to Attract
-          </div>
-
-          <Antigravity
-            count={300}
-            magnetRadius={7}
-            ringRadius={7.5}
-            waveSpeed={0.4}
-            waveAmplitude={1}
-            particleSize={1.5}
-            lerpSpeed={0.06}
-            color={'#4F46E5'}
-            autoAnimate={true}
-            particleVariance={1}
-            rotationSpeed={0.25}
-            particleShape="capsule"
-          />
         </div>
       </div>
     </section>

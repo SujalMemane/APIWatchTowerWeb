@@ -27,8 +27,8 @@ export const WorkflowProgression: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-eyebrow">
-            <span>Verified 5-Stage Lifecycle</span>
+          <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem' }}>
+            <span>RUNTIME VERIFICATION PIPELINE</span>
           </div>
           <h2 className="section-title">From API change to actionable repair.</h2>
           <p className="section-description">

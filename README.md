@@ -1,6 +1,6 @@
-# APIWatchTowerWeb — Dependency Guardian Website
+# APIWatchTowerWeb — HACKWAVE Dependency Guardian Website
 
-A developer-focused landing page and product architecture showcase for **Dependency Guardian**, built strictly to the specifications of `Dependency_Guardian_PRD.md`.
+A developer-focused landing page and product architecture showcase for **HACKWAVE Dependency Guardian**, built strictly to the specifications of `Dependency_Guardian_PRD.md`.
 
 ## Overview
 

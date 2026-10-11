@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
               A developer-focused dependency compatibility monitoring and assisted repair tool for external APIs and services.
             </p>
             <div style={{ fontSize: '0.75rem', color: 'var(--color-text-subtle)' }}>
-              Built for HACKWAVE • Local-First Architecture
+              Developer Infrastructure • Local-First Architecture
             </div>
           </div>
 
@@ -138,7 +138,7 @@ export const Footer: React.FC = () => {
           }}
         >
           <div>
-            &copy; {currentYear} HACKWAVE Dependency Guardian. All rights reserved.
+            &copy; {currentYear} Dependency Guardian. All rights reserved.
           </div>
 
           <button

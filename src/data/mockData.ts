@@ -444,7 +444,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-what',
     category: 'core',
-    question: 'What is HACKWAVE Dependency Guardian?',
+    question: 'What is Dependency Guardian?',
     answer: 'Dependency Guardian is a developer-focused compatibility monitoring and assisted repair tool for external APIs and services. It pairs a VS Code extension with a local Python backend to probe configured endpoints, detect breaking behavior or contract changes against preserved baselines, identify affected workflows in your application, and safely validate proposed repairs before you apply them.'
   },
   {

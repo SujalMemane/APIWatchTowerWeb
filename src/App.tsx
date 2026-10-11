@@ -1,4 +1,4 @@
-import React from 'react';
+import { CursorSpotlight } from './components/CursorSpotlight';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
@@ -25,6 +25,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="app-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Background Interactive Cursor Spotlight */}
+      <CursorSpotlight />
+
       {/* Announcement Bar */}
       <AnnouncementBar />
 

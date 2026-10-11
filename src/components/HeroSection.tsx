@@ -13,25 +13,28 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Headline */}
+        {/* Main Headline with Production Gradient */}
         <h1
           style={{
-            maxWidth: '920px',
-            margin: '0 auto 1.5rem auto',
-            letterSpacing: '-0.035em'
+            maxWidth: '960px',
+            margin: '0 auto 1.6rem auto',
+            letterSpacing: '-0.04em',
+            lineHeight: 1.12
           }}
         >
-          Catch breaking API changes before they break your code.
+          Catch breaking API changes{' '}
+          <span className="text-gradient-hero">before they break your code.</span>
         </h1>
 
         {/* Supporting Subhead */}
         <p
           style={{
-            maxWidth: '720px',
-            margin: '0 auto 2.5rem auto',
+            maxWidth: '740px',
+            margin: '0 auto 2.75rem auto',
             fontSize: '1.25rem',
             color: 'var(--color-text-secondary)',
-            lineHeight: 1.6
+            lineHeight: 1.7,
+            letterSpacing: '-0.01em'
           }}
         >
           Dependency Guardian detects unexpected API changes, shows which parts of your code may be affected, and helps your team investigate and validate repairs — directly in the developer workflow.

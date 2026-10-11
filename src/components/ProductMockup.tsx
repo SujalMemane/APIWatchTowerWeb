@@ -222,10 +222,25 @@ export const ProductMockup: React.FC = () => {
                 fontSize: '0.75rem',
                 lineHeight: 1.6,
                 color: '#e2e8f0',
-                border: '1px solid #1e293b'
+                border: '1px solid #1e293b',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
-              <div style={{ color: '#64748b', marginBottom: '0.4rem', fontSize: '0.6875rem' }}>// JSON Schema Mutation</div>
+              {/* Animated Radar Scanning Line */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  right: 0,
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.8), rgba(56, 189, 248, 0.9), transparent)',
+                  boxShadow: '0 0 8px rgba(99, 102, 241, 0.8)',
+                  animation: 'radar-scan 3.5s infinite ease-in-out',
+                  pointerEvents: 'none'
+                }}
+              />
+              <div style={{ color: '#64748b', marginBottom: '0.4rem', fontSize: '0.6875rem' }}>// JSON Schema Mutation (Deterministic Rule Match)</div>
               <div style={{ color: '#94a3b8' }}>&#123;</div>
               <div style={{ paddingLeft: '1rem', color: '#94a3b8' }}>"id": "u_123",</div>
               <div
@@ -391,7 +406,7 @@ export const ProductMockup: React.FC = () => {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#cbd5e1', marginBottom: '0.2rem' }}>
                 <Terminal size={12} style={{ color: '#10b981' }} />
-                <span>$ {scenario.validation.command}</span>
+                <span>$ {scenario.validation.command} <span style={{ animation: 'blink-cursor 1s infinite', color: '#10b981', fontWeight: 700 }}>_</span></span>
               </div>
               <div style={{ color: '#10b981' }}>{scenario.validation.output}</div>
               <div style={{ color: '#64748b', fontSize: '0.6875rem' }}>Execution time: 142ms • Exit status: 0</div>

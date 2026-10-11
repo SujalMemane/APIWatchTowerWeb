@@ -3,12 +3,21 @@ import {
   ShieldAlert, 
   FileCode2, 
   CheckCircle2, 
-  Lock
+  Lock,
+  Copy,
+  Check
 } from 'lucide-react';
 import { API_SCENARIOS } from '../data/mockData';
 
 export const ApiComparisonDemo: React.FC = () => {
   const [selectedScenarioId, setSelectedScenarioId] = useState<string>('users-rename');
+  const [copiedSide, setCopiedSide] = useState<'baseline' | 'observed' | null>(null);
+
+  const handleCopyJson = (data: any, side: 'baseline' | 'observed') => {
+    navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+    setCopiedSide(side);
+    setTimeout(() => setCopiedSide(null), 2000);
+  };
 
   const currentScenario = API_SCENARIOS.find(s => s.id === selectedScenarioId) || API_SCENARIOS[0];
 
@@ -169,9 +178,30 @@ export const ApiComparisonDemo: React.FC = () => {
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: '#94a3b8', letterSpacing: '0.05em' }}>
                   Preserved Baseline (Known-Good V1)
                 </span>
-                <span style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
-                  SQLite Snapshot #1
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <button
+                    onClick={() => handleCopyJson(currentScenario.baselineResponse, 'baseline')}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.25rem',
+                      fontSize: '0.6875rem',
+                      color: copiedSide === 'baseline' ? '#10b981' : '#94a3b8',
+                      backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                      border: '1px solid #1e293b',
+                      borderRadius: '4px',
+                      padding: '0.15rem 0.45rem',
+                      cursor: 'pointer'
+                    }}
+                    title="Copy Baseline JSON"
+                  >
+                    {copiedSide === 'baseline' ? <Check size={11} /> : <Copy size={11} />}
+                    {copiedSide === 'baseline' ? 'Copied' : 'Copy'}
+                  </button>
+                  <span style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
+                    SQLite Snapshot #1
+                  </span>
+                </div>
               </div>
               <pre
                 style={{
@@ -198,9 +228,30 @@ export const ApiComparisonDemo: React.FC = () => {
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: '#fca5a5', letterSpacing: '0.05em' }}>
                   Observed Response (Current Probe V2)
                 </span>
-                <span style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
-                  Difference Detected
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <button
+                    onClick={() => handleCopyJson(currentScenario.observedResponse, 'observed')}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.25rem',
+                      fontSize: '0.6875rem',
+                      color: copiedSide === 'observed' ? '#10b981' : '#94a3b8',
+                      backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                      border: '1px solid #1e293b',
+                      borderRadius: '4px',
+                      padding: '0.15rem 0.45rem',
+                      cursor: 'pointer'
+                    }}
+                    title="Copy Observed JSON"
+                  >
+                    {copiedSide === 'observed' ? <Check size={11} /> : <Copy size={11} />}
+                    {copiedSide === 'observed' ? 'Copied' : 'Copy'}
+                  </button>
+                  <span style={{ fontSize: '0.6875rem', fontFamily: 'var(--font-mono)', color: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
+                    Difference Detected
+                  </span>
+                </div>
               </div>
               <pre
                 style={{

@@ -83,11 +83,17 @@ export const ArchitectureDiagram: React.FC = () => {
             </div>
           </div>
 
-          {/* Directional Connector */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--color-brand-primary)', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600 }}>
-            <ArrowDown size={18} />
-            <span>HTTP Probes & Fingerprint Capture (HTTPX async)</span>
-            <ArrowDown size={18} />
+          {/* Animated Directional Flow Pipe 1 */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '-0.35rem 0' }}>
+            <svg width="24" height="36" viewBox="0 0 24 36" fill="none">
+              <line x1="12" y1="0" x2="12" y2="36" stroke="#818cf8" strokeWidth="2.5" strokeDasharray="6 6" style={{ animation: 'data-flow 1.2s linear infinite' }} />
+              <circle cx="12" cy="18" r="3.5" fill="#4f46e5" />
+            </svg>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem' }}>
+              <ArrowDown size={13} />
+              <span>HTTP Probes & Fingerprint Capture (HTTPX async)</span>
+              <ArrowDown size={13} />
+            </div>
           </div>
 
           {/* Layer 2: Local Python FastAPI Backend */}
@@ -159,11 +165,17 @@ export const ArchitectureDiagram: React.FC = () => {
             </div>
           </div>
 
-          {/* Directional Connector */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--color-brand-primary)', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600 }}>
-            <ArrowDown size={18} />
-            <span>Local REST Client • Tree View RPC • Diff & Approval Commands</span>
-            <ArrowDown size={18} />
+          {/* Animated Directional Flow Pipe 2 */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '-0.35rem 0' }}>
+            <svg width="24" height="36" viewBox="0 0 24 36" fill="none">
+              <line x1="12" y1="0" x2="12" y2="36" stroke="#818cf8" strokeWidth="2.5" strokeDasharray="6 6" style={{ animation: 'data-flow 1.2s linear infinite' }} />
+              <circle cx="12" cy="18" r="3.5" fill="#4f46e5" />
+            </svg>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem' }}>
+              <ArrowDown size={13} />
+              <span>Local REST Client • Tree View RPC • Diff & Approval Commands</span>
+              <ArrowDown size={13} />
+            </div>
           </div>
 
           {/* Layer 3: VS Code Extension Client */}

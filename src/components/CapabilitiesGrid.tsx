@@ -31,6 +31,14 @@ export const CapabilitiesGrid: React.FC = () => {
     }
   };
 
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty('--card-mouse-x', `${x}px`);
+    e.currentTarget.style.setProperty('--card-mouse-y', `${y}px`);
+  };
+
   const filteredCapabilities = activeFilter === 'All' 
     ? PRODUCT_CAPABILITIES 
     : PRODUCT_CAPABILITIES.filter(c => c.category === activeFilter);
@@ -92,15 +100,31 @@ export const CapabilitiesGrid: React.FC = () => {
           {filteredCapabilities.map((cap) => (
             <div
               key={cap.id}
-              className="feature-card"
+              className="feature-card interactive-card"
+              onMouseMove={handleCardMouseMove}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                height: '100%'
+                height: '100%',
+                position: 'relative'
               }}
             >
-              <div>
+              {/* Dynamic Mouse Spotlight Overlay */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'radial-gradient(320px circle at var(--card-mouse-x, -500px) var(--card-mouse-y, -500px), rgba(79, 70, 229, 0.08), transparent 70%)',
+                  pointerEvents: 'none',
+                  borderRadius: 'inherit',
+                  transition: 'opacity 150ms ease'
+                }}
+              />
+              <div style={{ position: 'relative', zIndex: 1 }}>
                 {/* Top Badge & Icon */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
                   <div

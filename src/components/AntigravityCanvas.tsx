@@ -141,6 +141,11 @@ export const AntigravityCanvas: React.FC = () => {
         // Pulsing opacity
         const currentAlpha = p.baseAlpha + Math.sin(time * p.pulseSpeed * 10 + p.phase) * 0.08;
 
+        // Skip particles clipping right at outer canvas borders
+        if (p.x < 14 || p.y < 14 || p.x > width - 14 || p.y > height - 14) {
+          continue;
+        }
+
         ctx.save();
         ctx.fillStyle = `rgba(79, 70, 229, ${Math.max(0.05, currentAlpha)})`;
         ctx.strokeStyle = `rgba(99, 102, 241, ${Math.max(0.08, currentAlpha)})`;

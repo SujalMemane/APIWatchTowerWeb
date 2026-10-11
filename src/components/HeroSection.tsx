@@ -1,10 +1,22 @@
 import React from 'react';
-import { ArrowRight, Terminal, Cpu, ArrowDown } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Terminal, 
+  Cpu, 
+  ArrowDown, 
+  Activity, 
+  Zap, 
+  ShieldCheck, 
+  GitBranch 
+} from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="section-wrapper subtle-grid-bg" style={{ paddingTop: '4.5rem', paddingBottom: '3.5rem' }}>
-      <div className="container" style={{ textAlign: 'center' }}>
+    <section className="section-wrapper subtle-grid-bg" style={{ paddingTop: '4.5rem', paddingBottom: '3.5rem', overflow: 'hidden' }}>
+      {/* Radiant Aurora Mesh Backdrop */}
+      <div className="hero-aurora-mesh" aria-hidden="true" />
+
+      <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
         {/* Technical Eyebrow Specification */}
         <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
           <div className="section-eyebrow" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.06em' }}>
@@ -94,7 +106,8 @@ export const HeroSection: React.FC = () => {
             flexWrap: 'wrap',
             justifyContent: 'center',
             padding: '0.65rem 1.25rem',
-            backgroundColor: '#ffffff',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(8px)',
             border: '1px solid var(--color-border-default)',
             borderRadius: 'var(--radius-md)',
             boxShadow: 'var(--shadow-xs)',
@@ -117,6 +130,62 @@ export const HeroSection: React.FC = () => {
             <Terminal size={13} style={{ color: 'var(--color-text-secondary)' }} />
             <span>SAFETY: PYTEST_GATED_APPROVAL</span>
           </span>
+        </div>
+
+        {/* Live Engineering Telemetry Strip */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+            gap: '1rem',
+            maxWidth: '1080px',
+            margin: '2.75rem auto 0 auto',
+            width: '100%'
+          }}
+        >
+          <div className="telemetry-card">
+            <div className="telemetry-header">
+              <span className="telemetry-tag">ENGINE ACCURACY</span>
+              <Activity size={15} style={{ color: 'var(--color-brand-primary)' }} />
+            </div>
+            <div className="telemetry-value">100% Deterministic</div>
+            <p className="telemetry-desc">
+              AST & RFC-9110 structural diffing without generative hallucinations.
+            </p>
+          </div>
+
+          <div className="telemetry-card">
+            <div className="telemetry-header">
+              <span className="telemetry-tag">CAPTURE LATENCY</span>
+              <Zap size={15} style={{ color: '#0284c7' }} />
+            </div>
+            <div className="telemetry-value">&lt;1.2s Detection</div>
+            <p className="telemetry-desc">
+              Zero-overhead probe capture on localhost loopback network.
+            </p>
+          </div>
+
+          <div className="telemetry-card">
+            <div className="telemetry-header">
+              <span className="telemetry-tag">MUTATION CONTROL</span>
+              <ShieldCheck size={15} style={{ color: 'var(--color-success)' }} />
+            </div>
+            <div className="telemetry-value">Zero Silent Writes</div>
+            <p className="telemetry-desc">
+              Explicit developer approval + Pytest verification before any code commit.
+            </p>
+          </div>
+
+          <div className="telemetry-card">
+            <div className="telemetry-header">
+              <span className="telemetry-tag">STATE RESILIENCE</span>
+              <GitBranch size={15} style={{ color: '#8b5cf6' }} />
+            </div>
+            <div className="telemetry-value">1-Click Rollback</div>
+            <p className="telemetry-desc">
+              Immutable snapshot lineage with instant revert guarantee.
+            </p>
+          </div>
         </div>
       </div>
     </section>

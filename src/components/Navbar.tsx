@@ -31,10 +31,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
   const navLinks = [
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Capabilities', href: '#capabilities' },
-    { label: 'API Diff Demo', href: '#interactive-demo' },
-    { label: 'VS Code Extension', href: '#extension-showcase' },
+    { label: 'API Diff', href: '#interactive-demo' },
+    { label: 'VS Code', href: '#extension-showcase' },
     { label: 'Architecture', href: '#architecture' },
-    { label: 'Developer Docs', href: '#developer-docs' },
+    { label: 'Docs', href: '#developer-docs' },
     { label: 'FAQ', href: '#faq' }
   ];
 
@@ -52,9 +52,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
         position: 'sticky',
         top: 0,
         zIndex: 40,
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.94)' : 'var(--color-canvas)',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        borderBottom: `1px solid ${scrolled ? 'var(--color-border-default)' : 'transparent'}`,
+        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.94)' : 'rgba(255, 255, 255, 0.85)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: `1px solid ${scrolled ? 'var(--color-border-default)' : 'var(--color-border-subtle)'}`,
         transition: 'all 200ms ease',
         height: 'var(--nav-height)',
         display: 'flex',
@@ -67,11 +68,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '100%'
+          width: '100%',
+          gap: '1rem'
         }}
       >
         {/* Brand Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} aria-label="Dependency Guardian Home">
+        <a 
+          href="#" 
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            textDecoration: 'none',
+            flexShrink: 0 
+          }} 
+          aria-label="Dependency Guardian Home"
+        >
           <Logo size={28} />
         </a>
 
@@ -80,7 +91,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '1.75rem'
+            gap: 'clamp(0.75rem, 1.3vw, 1.4rem)',
+            flexShrink: 0,
+            whiteSpace: 'nowrap'
           }}
           className="desktop-nav-links"
           aria-label="Main Navigation"
@@ -98,7 +111,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
                 fontWeight: 500,
                 color: 'var(--color-text-secondary)',
                 transition: 'color var(--transition-fast)',
-                textDecoration: 'none'
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                display: 'inline-flex',
+                alignItems: 'center'
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-brand-primary)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}
@@ -113,7 +129,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.75rem'
+            gap: '0.625rem',
+            flexShrink: 0,
+            whiteSpace: 'nowrap'
           }}
           className="desktop-nav-actions"
         >
@@ -126,6 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
                 onOpenQuickstart();
               }
             }}
+            style={{ whiteSpace: 'nowrap' }}
           >
             <Terminal size={14} /> Quickstart
           </a>
@@ -137,6 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
               e.preventDefault();
               handleLinkClick('#extension-showcase');
             }}
+            style={{ whiteSpace: 'nowrap' }}
           >
             Get Extension <ArrowUpRight size={14} />
           </a>
@@ -232,7 +252,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuickstart }) => {
       )}
 
       <style>{`
-        @media (max-width: 992px) {
+        @media (max-width: 1120px) {
           .desktop-nav-links {
             display: none !important;
           }

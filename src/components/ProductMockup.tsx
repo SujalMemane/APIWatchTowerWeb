@@ -27,14 +27,14 @@ export const ProductMockup: React.FC = () => {
   ];
 
   return (
-    <section className="container" style={{ marginBottom: '5rem' }}>
+    <section className="container" style={{ marginBottom: '5rem', position: 'relative', zIndex: 3 }}>
       {/* Container Card */}
       <div
         style={{
           backgroundColor: '#ffffff',
           borderRadius: 'var(--radius-xl)',
           border: '1px solid var(--color-border-default)',
-          boxShadow: 'var(--shadow-xl)',
+          boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(79, 70, 229, 0.12), 0 0 50px -12px rgba(99, 102, 241, 0.15)',
           overflow: 'hidden',
           position: 'relative'
         }}

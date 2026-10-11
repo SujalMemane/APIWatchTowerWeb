@@ -8,7 +8,16 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({ size = 28, showText = true, className = '' }) => {
   return (
-    <div className={`brand-logo-container ${className}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.625rem' }}>
+    <div
+      className={`brand-logo-container ${className}`}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.625rem',
+        flexShrink: 0,
+        whiteSpace: 'nowrap'
+      }}
+    >
       <svg
         width={size}
         height={size}

@@ -313,9 +313,9 @@ export const WorkflowProgression: React.FC = () => {
               <a
                 href="#interactive-demo"
                 className="workflow-nav-btn finish-btn"
-                title="Explore live comparison sandbox"
+                title="Explore live incident comparison"
               >
-                <span>Try Sandbox Demo</span>
+                <span>Inspect Live Incidents</span>
                 <ArrowRight size={16} />
               </a>
             )}

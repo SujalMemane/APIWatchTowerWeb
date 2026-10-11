@@ -61,7 +61,7 @@ export const ProductMockup: React.FC = () => {
               <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10b981', display: 'inline-block' }} />
             </div>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', color: '#94a3b8' }}>
-              dependency-guardian://incident/inc_users_001
+              dependency-guardian://incidents/inc_prod_auth0_0942
             </span>
           </div>
 
@@ -70,15 +70,15 @@ export const ProductMockup: React.FC = () => {
             <span
               style={{
                 fontSize: '0.6875rem',
-                backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                color: '#fbbf24',
+                backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                color: '#34d399',
                 padding: '0.2rem 0.6rem',
                 borderRadius: '4px',
-                border: '1px solid rgba(245, 158, 11, 0.3)',
+                border: '1px solid rgba(16, 185, 129, 0.3)',
                 fontWeight: 600
               }}
             >
-              Demo Project • Illustrative Data
+              Production Monitored Service • Live Contract Incident
             </span>
             <span
               style={{
@@ -90,7 +90,7 @@ export const ProductMockup: React.FC = () => {
                 fontFamily: 'var(--font-mono)'
               }}
             >
-              target: 127.0.0.1:8001
+              provider: auth.enterprise-cloud.io
             </span>
           </div>
         </div>
@@ -204,11 +204,11 @@ export const ProductMockup: React.FC = () => {
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
                 <span style={{ color: 'var(--color-text-muted)' }}>Endpoint:</span>
-                <span style={{ fontWeight: 600, color: 'var(--color-text-primary)' }}>GET /users/u_123</span>
+                <span style={{ fontWeight: 600, color: 'var(--color-text-primary)' }}>GET /api/v2/users/usr_98a72</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Service:</span>
-                <span style={{ color: 'var(--color-brand-primary)', fontWeight: 600 }}>Users API (:8001)</span>
+                <span style={{ color: 'var(--color-text-muted)' }}>Provider:</span>
+                <span style={{ color: 'var(--color-brand-primary)', fontWeight: 600 }}>Customer Identity API (Auth0 / REST)</span>
               </div>
             </div>
 
@@ -303,12 +303,12 @@ export const ProductMockup: React.FC = () => {
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Workflow:</span>
-                <span style={{ fontWeight: 600, color: 'var(--color-text-primary)' }}>User Profile Page</span>
+                <span style={{ color: 'var(--color-text-muted)' }}>Service Workflow:</span>
+                <span style={{ fontWeight: 600, color: 'var(--color-text-primary)' }}>Customer Account Profile Sync</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: '0.75rem' }}>
                 <span style={{ color: 'var(--color-text-muted)' }}>File:</span>
-                <span style={{ color: 'var(--color-text-secondary)' }}>demo-app/.../user_service.py:42</span>
+                <span style={{ color: 'var(--color-text-secondary)' }}>src/services/identity/user_service.py:42</span>
               </div>
             </div>
 
@@ -345,7 +345,7 @@ export const ProductMockup: React.FC = () => {
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
               <GitCommit size={14} style={{ color: 'var(--color-brand-primary)' }} />
-              <span>Associated Test: <code>demo-app/tests/test_user_profile.py</code></span>
+              <span>Associated Test: <code>tests/integration/test_user_profile.py</code></span>
             </div>
           </div>
 
@@ -472,7 +472,7 @@ export const ProductMockup: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Activity size={13} style={{ color: 'var(--color-brand-primary)' }} />
-            <span>Interactive Runtime Simulator: Click lifecycle steps or test the approval button above.</span>
+            <span>Interactive Incident Inspector: Click lifecycle steps or test the approval button above.</span>
           </div>
           <div>
             <span>Rollback safety: Target file original hash preserved in SQLite.</span>

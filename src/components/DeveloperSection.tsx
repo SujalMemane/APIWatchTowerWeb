@@ -202,25 +202,25 @@ export const DeveloperSection: React.FC = () => {
           {activeTab === 'quickstart' && (
             <div style={{ padding: '2rem' }}>
               <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '1.25rem' }}>
-                Reproducible Local MVP Setup
+                Production Integration & Workspace Setup
               </h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <div>
                   <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#818cf8', marginBottom: '0.4rem' }}>
-                    1. Start the Local Python FastAPI Backend
+                    1. Initialize Workspace Contract Guardian CLI
                   </div>
                   <pre style={{ backgroundColor: '#05070d', padding: '0.85rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b', fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', color: '#4ade80' }}>
-                    <code>python -m uvicorn app.main:app --port 8765 --host 127.0.0.1</code>
+                    <code>dependency-guardian init --config guardian.config.yaml</code>
                   </pre>
                 </div>
 
                 <div>
                   <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#818cf8', marginBottom: '0.4rem' }}>
-                    2. Launch Simulated REST Services (Users, Payments, Search)
+                    2. Capture Baseline & Probe Monitored Upstream Providers
                   </div>
                   <pre style={{ backgroundColor: '#05070d', padding: '0.85rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b', fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', color: '#4ade80' }}>
-                    <code>python demo-services/run_simulators.py  # Ports 8001, 8002, 8003, 8004</code>
+                    <code>dependency-guardian probe --env production --record-baseline</code>
                   </pre>
                 </div>
 
@@ -232,7 +232,7 @@ export const DeveloperSection: React.FC = () => {
                     <code>code --install-extension dependency-guardian.vsix</code>
                   </pre>
                   <p style={{ fontSize: '0.8125rem', color: '#94a3b8', marginTop: '0.5rem' }}>
-                    Open your workspace, press <code>Ctrl+Shift+P</code>, and run <code>Dependency Guardian: Create Baseline</code>.
+                    Open your workspace, press <code>Ctrl+Shift+P</code>, and run <code>Dependency Guardian: Inspect Live Incidents</code>.
                   </p>
                 </div>
               </div>

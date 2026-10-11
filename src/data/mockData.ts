@@ -2,55 +2,55 @@ import type { ApiChangeScenario, WorkflowStep, ProductCapability, ArchitectureLa
 
 export const API_SCENARIOS: ApiChangeScenario[] = [
   {
-    id: 'users-rename',
-    serviceName: 'Users API',
-    endpoint: '/users/u_123',
+    id: 'identity-rename',
+    serviceName: 'Identity & Auth Provider (Auth0 / Okta API)',
+    endpoint: '/api/v2/users/usr_98a72',
     method: 'GET',
     port: 8001,
-    changeType: 'Field Renamed (Removed / Added Key)',
+    changeType: 'Field Renamed (Breaking Schema Deprecation)',
     severity: 'HIGH',
     confidence: 'Evidence-Backed Candidate',
     baselineResponse: {
-      id: 'u_123',
+      id: 'usr_98a72',
       name: 'Alice Henderson',
-      email: 'alice.henderson@example.com',
+      email: 'alice.henderson@enterprise.com',
       role: 'staff_engineer'
     },
     observedResponse: {
-      id: 'u_123',
+      id: 'usr_98a72',
       display_name: 'Alice Henderson',
-      email: 'alice.henderson@example.com',
+      email: 'alice.henderson@enterprise.com',
       role: 'staff_engineer'
     },
     removedFields: ['name'],
     addedFields: ['display_name'],
-    explanation: 'The upstream provider removed property "name" and introduced "display_name" with identical scalar type and value in probe fixtures. Consuming application accessing user.name will encounter KeyError / undefined behavior.',
+    explanation: 'Upstream identity provider migrated profile naming schema from "name" to "display_name". Production services accessing user["name"] encounter runtime KeyError, crashing user account and checkout sessions.',
     affectedWorkflow: {
       id: 'user-profile',
-      name: 'User Profile Page',
-      sourceFile: 'demo-app/src/services/user_service.py',
+      name: 'Customer Account Profile',
+      sourceFile: 'src/services/identity/user_service.py',
       affectedLine: 42,
-      codeSnippet: 'return UserProfile(\n    id=payload["id"],\n    name=payload["name"],  # <-- KeyError: "name"\n    email=payload["email"]\n)',
-      testFile: 'demo-app/tests/test_user_profile.py'
+      codeSnippet: 'return UserProfile(\n    id=payload["id"],\n    name=payload["name"],  # <-- KeyError: "name" in production\n    email=payload["email"]\n)',
+      testFile: 'tests/integration/test_user_profile.py'
     },
     proposedRepair: {
-      strategy: 'Field Compatibility Adapter',
-      adapterFile: 'demo-app/src/services/user_service.py',
+      strategy: 'Non-Breaking Field Compatibility Adapter',
+      adapterFile: 'src/services/identity/user_service.py',
       diff: `@@ -41,3 +41,4 @@
      id=payload["id"],
 -    name=payload["name"],
-+    # Compatibility adapter for upstream display_name migration
++    # Compatibility adapter for upstream display_name schema migration
 +    name=payload.get("display_name", payload.get("name", "")),
      email=payload["email"],`,
       assumptions: [
-        'display_name contains equivalent human-readable name',
+        'display_name contains equivalent user full name',
         'Payload remains a JSON object dictionary',
-        'Fallback to legacy "name" preserved for backwards compatibility'
+        'Preserves backward compatibility for existing consumers'
       ],
       canAutoRepair: true
     },
     validation: {
-      command: 'pytest demo-app/tests/test_user_profile.py -q',
+      command: 'pytest tests/integration/test_user_profile.py -q',
       exitCode: 0,
       durationMs: 142,
       output: '.... [100%]\n4 passed in 0.14s',
@@ -60,43 +60,43 @@ export const API_SCENARIOS: ApiChangeScenario[] = [
   },
   {
     id: 'search-pagination',
-    serviceName: 'Search API',
-    endpoint: '/search?page=1',
+    serviceName: 'Catalog Search Engine (Algolia / Elasticsearch API)',
+    endpoint: '/v1/catalog/search?query=production',
     method: 'GET',
     port: 8003,
-    changeType: 'Pagination Contract Shift (Offset to Cursor)',
+    changeType: 'Pagination Protocol Shift (Numeric Offset to Opaque Cursor)',
     severity: 'HIGH',
     confidence: 'Bounded Adapter Candidate',
     baselineResponse: {
-      items: [{ id: 'u_123', title: 'Kubernetes Config' }],
+      items: [{ id: 'prod_901', title: 'Enterprise Cloud Instance' }],
       page: 1,
       next_page: 2,
       total_count: 58
     },
     observedResponse: {
-      results: [{ id: 'u_123', title: 'Kubernetes Config' }],
-      next_cursor: 'cursor_demo_eyJwYWdlIjoyfQ',
+      results: [{ id: 'prod_901', title: 'Enterprise Cloud Instance' }],
+      next_cursor: 'cur_live_eyJsaW1pdCI6MjAsIm9mZnNldCI6MjB9',
       has_more: true
     },
     removedFields: ['items', 'page', 'next_page', 'total_count'],
     addedFields: ['results', 'next_cursor', 'has_more'],
-    explanation: 'Upstream migrated from numeric page offset pagination to opaque cursor-based pagination. Both array property key ("items" -> "results") and progression parameters changed.',
+    explanation: 'Upstream search provider migrated from numeric offset pagination to opaque cursor-based pagination. Array key ("items" -> "results") and progression parameters broke downstream product indexing loops.',
     affectedWorkflow: {
-      id: 'user-search',
-      name: 'User Search & Directory',
-      sourceFile: 'demo-app/src/services/search_service.py',
+      id: 'product-catalog-search',
+      name: 'Product Catalog Discovery',
+      sourceFile: 'src/services/catalog/search_service.py',
       affectedLine: 88,
-      codeSnippet: 'def fetch_page(page_num: int):\n    data = client.get(f"/search?page={page_num}")\n    return data["items"], data.get("next_page")',
-      testFile: 'demo-app/tests/test_search.py'
+      codeSnippet: 'def fetch_page(page_num: int):\n    data = client.get(f"/catalog/search?page={page_num}")\n    return data["items"], data.get("next_page")',
+      testFile: 'tests/integration/test_catalog_search.py'
     },
     proposedRepair: {
       strategy: 'Bounded Cursor Normalizer Adapter',
-      adapterFile: 'demo-app/src/services/search_service.py',
+      adapterFile: 'src/services/catalog/search_service.py',
       diff: `@@ -87,4 +87,6 @@
  def fetch_page(page_num: int, cursor: str | None = None):
--    data = client.get(f"/search?page={page_num}")
+-    data = client.get(f"/catalog/search?page={page_num}")
 -    return data["items"], data.get("next_page")
-+    url = f"/search?cursor={cursor}" if cursor else f"/search?page={page_num}"
++    url = f"/catalog/search?cursor={cursor}" if cursor else f"/catalog/search?page={page_num}"
 +    data = client.get(url)
 +    items = data.get("results", data.get("items", []))
 +    return items, data.get("next_cursor")`,
@@ -108,7 +108,7 @@ export const API_SCENARIOS: ApiChangeScenario[] = [
       canAutoRepair: true
     },
     validation: {
-      command: 'pytest demo-app/tests/test_search.py -q',
+      command: 'pytest tests/integration/test_catalog_search.py -q',
       exitCode: 0,
       durationMs: 189,
       output: '...... [100%]\n6 passed in 0.19s',
@@ -118,21 +118,21 @@ export const API_SCENARIOS: ApiChangeScenario[] = [
   },
   {
     id: 'payments-semantic',
-    serviceName: 'Payments API',
-    endpoint: '/payments/p_123',
+    serviceName: 'Payment Gateway (Stripe / Billing Webhook API)',
+    endpoint: '/v1/charges/ch_live_3M7qK9',
     method: 'GET',
     port: 8002,
-    changeType: 'Semantic Shift (Value Meaning Ambiguity)',
+    changeType: 'Semantic Status Mutation ("paid" -> "settled_pending_verification")',
     severity: 'UNCERTAIN',
     confidence: 'Unverified Semantic Equivalence',
     baselineResponse: {
-      id: 'p_123',
+      id: 'ch_live_3M7qK9',
       status: 'paid',
       amount_cents: 10000,
       currency: 'USD'
     },
     observedResponse: {
-      id: 'p_123',
+      id: 'ch_live_3M7qK9',
       status: 'settled_pending_verification',
       amount_cents: 10000,
       currency: 'USD'
@@ -140,18 +140,18 @@ export const API_SCENARIOS: ApiChangeScenario[] = [
     removedFields: [],
     addedFields: [],
     changedFields: ['status: "paid" -> "settled_pending_verification"'],
-    explanation: 'The JSON structure is intact, but the enum value of "status" altered to an unrecognized state. Automatic repair is intentionally BLOCKED to prevent premature order fulfillment or financial discrepancy.',
+    explanation: 'The payload structure matches, but the business enum "status" changed to an unmapped value. An automated adapter could falsely fulfill unpaid orders or trigger billing chargebacks. Dependency Guardian activates an emergency Safety Brake, blocking automatic patch application and requiring engineering review.',
     affectedWorkflow: {
-      id: 'payment-dashboard',
-      name: 'Payment Reconciliation Dashboard',
-      sourceFile: 'demo-app/src/services/payment_service.py',
+      id: 'billing-reconciliation',
+      name: 'Order Fulfillment & Billing Reconciliation',
+      sourceFile: 'src/services/billing/payment_service.py',
       affectedLine: 63,
       codeSnippet: 'if record["status"] == "paid":\n    fulfill_order(record["id"])\nelse:\n    hold_order(record["id"])',
-      testFile: 'demo-app/tests/test_payments.py'
+      testFile: 'tests/integration/test_payments.py'
     },
     proposedRepair: {
       strategy: 'SAFETY LOCK: Automatic Repair Prohibited',
-      adapterFile: 'demo-app/src/services/payment_service.py',
+      adapterFile: 'src/services/billing/payment_service.py',
       diff: '# Automatic repair withheld for safety\n# Semantic equivalence between "paid" and "settled_pending_verification"\n# cannot be proven automatically. Developer review is required.',
       assumptions: [
         'Requires financial domain sign-off',
@@ -161,7 +161,7 @@ export const API_SCENARIOS: ApiChangeScenario[] = [
       blockReason: 'Semantic ambiguity: Automated adapters cannot guarantee financial or compliance correctness.'
     },
     validation: {
-      command: 'pytest demo-app/tests/test_payments.py -q',
+      command: 'pytest tests/integration/test_payments.py -q',
       exitCode: 1,
       durationMs: 110,
       output: 'F [100%]\nFAILURES:\nAssertionError: Status "settled_pending_verification" not recognized in paid fulfillment workflow.\n1 failed in 0.11s',
@@ -179,16 +179,16 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
     description: 'Probes execute bounded HTTP requests against configured endpoints. Responses are normalized, fingerprinted, and saved as versioned baselines. A scan never silently replaces your baseline.',
     technicalArtifact: {
       type: 'config',
-      label: 'Probe Definition in dependency-guardian.yml',
+      label: 'Production Probe Definition in dependency-guardian.yml',
       snippet: `dependencies:
-  - id: users-api
-    name: Users API
-    base_url: "http://127.0.0.1:8001"
+  - id: identity-provider
+    name: Customer Identity & Auth API
+    base_url: "https://auth.enterprise-cloud.io"
     probes:
-      - id: user-profile
+      - id: customer-profile
         method: GET
-        path: "/users/u_123"
-        expected_contract: user_profile`
+        path: "/api/v2/users/usr_98a72"
+        expected_contract: customer_profile`
     },
     statusBadge: 'Baseline v1 Stored',
     safetyNote: 'Baselines are only promoted by explicit developer action.'
@@ -200,12 +200,12 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
     description: 'When services shift, Dependency Guardian compares the new response with the preserved baseline. It identifies dropped properties, altered types, contract mutations, or enum shifts.',
     technicalArtifact: {
       type: 'diff',
-      label: 'Deterministic Engine Observation',
-      snippet: `Observed Difference on GET /users/u_123:
+      label: 'Deterministic Engine Observation on Upstream Release',
+      snippet: `Observed Difference on GET /api/v2/users/usr_98a72:
 - [REMOVED] field: "name" (string)
 + [ADDED]   field: "display_name" (string)
 Match: Same scalar type, matching fixture value "Alice Henderson"
-Classification: HIGH RISK (Breaking Contract Mutation)`
+Classification: HIGH RISK (Breaking Schema Contract Mutation)`
     },
     statusBadge: 'Difference Detected',
     safetyNote: 'Code-based deterministic rules are the sole source of truth.'
@@ -217,11 +217,11 @@ Classification: HIGH RISK (Breaking Contract Mutation)`
     description: 'Rather than performing opaque full-repo guesses, the engine references your declared workflows, connecting changed fields directly to consuming source files and relevant tests.',
     technicalArtifact: {
       type: 'mapping',
-      label: 'Workflow Impact Trace',
-      snippet: `Affected Workflow: "User Profile Page" (id: user-profile)
-Source File: demo-app/src/services/user_service.py (line 42)
+      label: 'Production Workflow Impact Trace',
+      snippet: `Affected Workflow: "Customer Account Profile" (id: customer-profile)
+Source File: src/services/identity/user_service.py (line 42)
 Declared Fields: ["name", "email"]
-Associated Test: demo-app/tests/test_user_profile.py
+Associated Test: tests/integration/test_user_profile.py
 Evidence: user_service.py reads payload["name"] which is absent in V2`
     },
     statusBadge: '1 Workflow Affected',
@@ -235,11 +235,12 @@ Evidence: user_service.py reads payload["name"] which is absent in V2`
     technicalArtifact: {
       type: 'patch',
       label: 'Generated Adapter Patch Preview',
-      snippet: `--- a/demo-app/src/services/user_service.py
-+++ b/demo-app/src/services/user_service.py
+      snippet: `--- a/src/services/identity/user_service.py
++++ b/src/services/identity/user_service.py
 @@ -41,3 +41,4 @@
      id=payload["id"],
 -    name=payload["name"],
++    # Backward-compatible adapter for display_name schema migration
 +    name=payload.get("display_name", payload.get("name", "")),
      email=payload["email"],`
     },
@@ -254,7 +255,7 @@ Evidence: user_service.py reads payload["name"] which is absent in V2`
     technicalArtifact: {
       type: 'test',
       label: 'Pytest Validation Runner Output',
-      snippet: `$ pytest demo-app/tests/test_user_profile.py -q
+      snippet: `$ pytest tests/integration/test_user_profile.py -q
 ....                                                  [100%]
 4 passed in 0.14s
 Exit code: 0
@@ -266,6 +267,16 @@ Status: VALIDATION_PASSED -> Ready for Developer Approval`
 ];
 
 export const PRODUCT_CAPABILITIES: ProductCapability[] = [
+  {
+    id: 'baseline-store',
+    title: 'Explicit Baseline Snapshots',
+    category: 'Baselines',
+    description: 'Explicit, developer-controlled baseline capture stored in local SQLite. Probes never overwrite your reference state silently.',
+    iconName: 'Database',
+    badge: 'Deterministic',
+    status: 'verified_mvp',
+    metricOrEvidence: 'Versioned SQLite records with exact SHA-256 payload hashes'
+  },
   {
     id: 'diff-engine',
     title: 'Deterministic Change Detection',
@@ -347,33 +358,34 @@ export const PRODUCT_CAPABILITIES: ProductCapability[] = [
     metricOrEvidence: 'Zero permanent writes without clean rollback data preserved'
   }
 ];
+export const CAPABILITIES = PRODUCT_CAPABILITIES;
 
 export const ARCHITECTURE_LAYERS: ArchitectureLayer[] = [
   {
     id: 'layer-external',
-    name: 'External & Simulated Services',
+    name: 'Monitored External Services & Third-Party APIs',
     badge: 'Target Layer',
-    description: 'Configured HTTP endpoints probed safely on demand over loopback (127.0.0.1) with timeout and payload size boundaries.',
+    description: 'Configured cloud and third-party HTTP endpoints probed safely on demand or in CI with timeout and payload boundaries.',
     components: [
       {
-        title: 'Users API (:8001)',
-        tech: 'FastAPI REST Service',
-        detail: 'Simulates v1/v2 user profiles, field renames (name -> display_name)'
+        title: 'Customer Identity Provider',
+        tech: 'Auth0 / Okta / REST API',
+        detail: 'Monitors breaking user profile mutations, schema migrations (name -> display_name)'
       },
       {
-        title: 'Payments API (:8002)',
-        tech: 'FastAPI REST Service',
-        detail: 'Simulates transaction status, tests semantic uncertainty detection'
+        title: 'Payment Gateway',
+        tech: 'Stripe / Billing Webhook API',
+        detail: 'Monitors transaction states, triggers safety brake on semantic status ambiguities'
       },
       {
-        title: 'Search API (:8003)',
-        tech: 'FastAPI REST Service',
-        detail: 'Simulates pagination shifts (page offset -> opaque cursor)'
+        title: 'Catalog Search Engine',
+        tech: 'Algolia / Elasticsearch API',
+        detail: 'Detects pagination contract breaks (offset page -> opaque cursor pagination)'
       },
       {
-        title: 'Notification Tool (:8004)',
-        tech: 'Local HTTP Endpoint',
-        detail: 'Simulates tool notification contracts for downstream integrations'
+        title: 'Notification & Messaging Services',
+        tech: 'Twilio / SendGrid / Webhook',
+        detail: 'Verifies downstream message schemas and communication service contract changes'
       }
     ]
   },
@@ -469,7 +481,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'faq-semantic-uncertainty',
     category: 'repairs',
     question: 'What happens when an API change has ambiguous business meaning?',
-    answer: 'In cases like our simulated Payments API scenario where an enum value shifts from "paid" to "settled_pending_verification", structural diffs cannot prove semantic equivalence. Dependency Guardian explicitly flags this as "Semantic Uncertainty" and triggers a safety brake that prohibits automatic repair, directing the developer to perform manual business review.'
+    answer: 'In cases like real-world Stripe and payment gateway integrations where an enum value shifts from "paid" to "settled_pending_verification", structural diffs cannot prove semantic equivalence. Dependency Guardian explicitly flags this as "Semantic Uncertainty" and triggers a safety brake that prohibits automatic repair, directing the developer to perform manual business review.'
   },
   {
     id: 'faq-vscode',
@@ -480,8 +492,8 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-install',
     category: 'vs_code',
-    question: 'How do I install and run the Dependency Guardian MVP?',
-    answer: 'The MVP runs locally on your development workstation. Start the local Python backend with "python -m uvicorn app.main:app --port 8765", launch the simulated services, and install the extension in VS Code via "code --install-extension dependency-guardian.vsix". Open your repository containing "dependency-guardian.yml" and trigger "Dependency Guardian: Create Baseline" from the Command Palette.'
+    question: 'How do I install and run Dependency Guardian?',
+    answer: 'Dependency Guardian runs in your local development environment alongside your codebase. Start the local backend with "python -m uvicorn app.main:app --port 8765", configure your target API endpoints in "dependency-guardian.yml", and install the extension in VS Code via "code --install-extension dependency-guardian.vsix". Open your repository and trigger "Dependency Guardian: Create Baseline" from the Command Palette.'
   },
   {
     id: 'faq-security',
@@ -492,10 +504,10 @@ export const FAQ_ITEMS: FaqItem[] = [
 ];
 
 export const CONFIG_EXAMPLE_YAML = `# dependency-guardian.yml
-# Project & Validation Configuration
+# Production Service & Verification Contract
 project:
-  name: demo-shop
-  validation_command: "pytest -q"
+  name: cloud-commerce-platform
+  validation_command: "pytest tests/ -q"
 
 settings:
   request_timeout_seconds: 3
@@ -506,53 +518,53 @@ settings:
 
 # Registered External Service Dependencies & Probes
 dependencies:
-  - id: users-api
-    name: Users API
-    base_url: "http://127.0.0.1:8001"
+  - id: identity-provider
+    name: Customer Identity & Auth API
+    base_url: "https://auth.enterprise-cloud.io"
     probes:
-      - id: user-profile
+      - id: customer-profile
         method: GET
-        path: "/users/u_123"
-        expected_contract: user_profile
+        path: "/api/v2/users/usr_98a72"
+        expected_contract: customer_profile
 
-  - id: payments-api
-    name: Payments API
-    base_url: "http://127.0.0.1:8002"
+  - id: payment-gateway
+    name: Payment Gateway (Stripe API)
+    base_url: "https://api.stripe.com"
     probes:
-      - id: payment-detail
+      - id: payment-charges
         method: GET
-        path: "/payments/p_123"
-        expected_contract: payment
+        path: "/v1/charges/ch_live_3M7qK9"
+        expected_contract: charge_record
 
-  - id: search-api
-    name: Search API
-    base_url: "http://127.0.0.1:8003"
+  - id: catalog-search
+    name: Catalog Search Engine (Algolia API)
+    base_url: "https://search.catalog-cloud.io"
     probes:
-      - id: search-page-one
+      - id: catalog-query
         method: GET
-        path: "/search?page=1"
+        path: "/v1/catalog/search?query=production"
         expected_contract: search_results
 
 # Explicit Workflow-to-Code & Test Mappings
 workflows:
-  - id: user-profile
-    name: User Profile Page
-    dependencies: [users-api]
-    source_files: ["demo-app/src/services/user_service.py"]
+  - id: customer-profile
+    name: Customer Account Profile
+    dependencies: [identity-provider]
+    source_files: ["src/services/identity/user_service.py"]
     fields: ["name", "email"]
-    tests: ["demo-app/tests/test_user_profile.py"]
+    tests: ["tests/integration/test_user_profile.py"]
 
-  - id: payment-dashboard
-    name: Payment Dashboard
-    dependencies: [payments-api]
-    source_files: ["demo-app/src/services/payment_service.py"]
+  - id: billing-reconciliation
+    name: Order Fulfillment & Billing
+    dependencies: [payment-gateway]
+    source_files: ["src/services/billing/payment_service.py"]
     fields: ["status", "amount"]
-    tests: ["demo-app/tests/test_payments.py"]
+    tests: ["tests/integration/test_payments.py"]
 
-  - id: user-search
-    name: User Search
-    dependencies: [search-api]
-    source_files: ["demo-app/src/services/search_service.py"]
+  - id: product-catalog-search
+    name: Product Catalog Discovery
+    dependencies: [catalog-search]
+    source_files: ["src/services/catalog/search_service.py"]
     fields: ["items", "page", "next_page"]
-    tests: ["demo-app/tests/test_search.py"]
+    tests: ["tests/integration/test_catalog_search.py"]
 `;

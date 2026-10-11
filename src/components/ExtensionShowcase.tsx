@@ -70,7 +70,7 @@ export const ExtensionShowcase: React.FC = () => {
                 <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10b981' }} />
               </div>
               <span style={{ marginLeft: '0.5rem', color: '#cbd5e1', fontWeight: 500 }}>
-                demo-shop — Visual Studio Code
+                cloud-commerce-platform — Visual Studio Code
               </span>
             </div>
 
@@ -302,7 +302,7 @@ export const ExtensionShowcase: React.FC = () => {
                     color: '#94a3b8'
                   }}
                 >
-                  <span>demo-app/src/services/user_service.py (Working Tree Diff)</span>
+                  <span>src/services/identity/user_service.py (Working Tree Diff)</span>
                   <span style={{ color: '#10b981' }}>+1 / -1 lines</span>
                 </div>
                 <div style={{ padding: '0.75rem' }}>
@@ -333,7 +333,7 @@ export const ExtensionShowcase: React.FC = () => {
                   <Terminal size={12} style={{ color: '#10b981' }} />
                   <span>Terminal: Guardian Validation Sandbox</span>
                 </div>
-                <div style={{ color: '#e2e8f0' }}>$ pytest demo-app/tests/test_user_profile.py -q</div>
+                <div style={{ color: '#e2e8f0' }}>$ pytest tests/integration/test_user_profile.py -q</div>
                 {validationRun ? (
                   <>
                     <div style={{ color: '#4ade80' }}>.... [100%] 4 passed in 0.14s</div>

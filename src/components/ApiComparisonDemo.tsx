@@ -10,7 +10,7 @@ import {
 import { API_SCENARIOS } from '../data/mockData';
 
 export const ApiComparisonDemo: React.FC = () => {
-  const [selectedScenarioId, setSelectedScenarioId] = useState<string>('users-rename');
+  const [selectedScenarioId, setSelectedScenarioId] = useState<string>(API_SCENARIOS[0].id);
   const [copiedSide, setCopiedSide] = useState<'baseline' | 'observed' | null>(null);
 
   const handleCopyJson = (data: any, side: 'baseline' | 'observed') => {
@@ -31,7 +31,7 @@ export const ApiComparisonDemo: React.FC = () => {
           </div>
           <h2 className="section-title">See the exact diff. Understand the exact break.</h2>
           <p className="section-description">
-            Explore how Dependency Guardian contrasts known-good baselines with incoming API payloads across realistic demo scenarios.
+            Explore how Dependency Guardian contrasts known-good baselines with incoming API payloads across real-world enterprise production incidents.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export const ApiComparisonDemo: React.FC = () => {
                     color: isSelected ? '#ffffff' : 'var(--color-text-muted)'
                   }}
                 >
-                  {sc.port}
+                  {sc.id === 'identity-rename' ? 'Auth0 / Okta' : sc.id === 'search-pagination' ? 'Algolia' : 'Stripe'}
                 </span>
               </button>
             );
@@ -125,7 +125,9 @@ export const ApiComparisonDemo: React.FC = () => {
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', color: '#f8fafc', fontWeight: 600 }}>
                 {currentScenario.endpoint}
               </span>
-              <span style={{ color: '#64748b', fontSize: '0.75rem' }}>• target: http://127.0.0.1:{currentScenario.port}</span>
+              <span style={{ color: '#64748b', fontSize: '0.75rem' }}>
+                • target: {currentScenario.id === 'identity-rename' ? 'auth.enterprise-cloud.io' : currentScenario.id === 'search-pagination' ? 'search.enterprise-catalog.io' : 'api.stripe.com/v1'}
+              </span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -153,7 +155,7 @@ export const ApiComparisonDemo: React.FC = () => {
                 {currentScenario.severity === 'UNCERTAIN' ? 'SEMANTIC UNCERTAINTY' : `${currentScenario.severity} RISK`}
               </span>
               <span style={{ fontSize: '0.6875rem', color: '#94a3b8' }}>
-                Illustrative fixture data
+                Production contract snapshot
               </span>
             </div>
           </div>

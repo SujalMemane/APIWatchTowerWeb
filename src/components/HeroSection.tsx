@@ -119,7 +119,7 @@ export const HeroSection: React.FC = () => {
         >
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600, color: 'var(--color-text-primary)' }}>
             <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'var(--color-success)', display: 'inline-block' }} />
-            <span>Localhost Loopback (127.0.0.1)</span>
+            <span>Upstream Dependency Probes</span>
           </span>
           <span style={{ color: 'var(--color-border-hover)' }}>|</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontWeight: 600 }}>
@@ -162,7 +162,7 @@ export const HeroSection: React.FC = () => {
             </div>
             <div className="telemetry-value">&lt;1.2s Detection</div>
             <p className="telemetry-desc">
-              Zero-overhead probe capture on localhost loopback network.
+              Zero-overhead probe capture across staging and production endpoints.
             </p>
           </div>
 

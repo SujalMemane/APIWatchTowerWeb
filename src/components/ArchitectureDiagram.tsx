@@ -48,11 +48,11 @@ export const ArchitectureDiagram: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                 <Server size={22} style={{ color: 'var(--color-brand-primary)' }} />
                 <h4 style={{ fontSize: '1.1875rem', fontWeight: 800, color: 'var(--color-text-primary)' }}>
-                  Simulated External Dependencies (Local Ports)
+                  {ARCHITECTURE_LAYERS[0].name}
                 </h4>
               </div>
               <span className="status-pill neutral" style={{ fontSize: '0.78rem', padding: '0.3rem 0.75rem' }}>
-                Target Environment (Localhost)
+                {ARCHITECTURE_LAYERS[0].badge}
               </span>
             </div>
 

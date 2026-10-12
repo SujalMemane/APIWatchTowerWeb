@@ -17,7 +17,7 @@ export const FinalCta: React.FC = () => {
           style={{
             backgroundColor: '#0f172a',
             borderRadius: 'var(--radius-xl)',
-            padding: '3.5rem 2rem',
+            padding: 'clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2rem)',
             textAlign: 'center',
             color: '#ffffff',
             position: 'relative',
@@ -86,6 +86,7 @@ export const FinalCta: React.FC = () => {
 
             {/* CTAs */}
             <div
+              className="final-cta-buttons"
               style={{
                 display: 'flex',
                 alignItems: 'center',

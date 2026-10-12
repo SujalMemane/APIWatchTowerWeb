@@ -29,7 +29,14 @@ body {
   background-color: var(--color-canvas);
   color: var(--color-text-primary);
   overflow-x: hidden;
+  max-width: 100vw;
   position: relative;
+}
+
+#root, .app-root {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 /* Custom Production Scrollbar */
@@ -58,24 +65,26 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: -0.03em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(2.75rem, 5.8vw, 4.4rem);
+  font-size: clamp(2rem, 5.2vw, 4.25rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1.1;
+  line-height: 1.12;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-size: clamp(1.6rem, 3.8vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.18;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.3;
@@ -140,6 +149,13 @@ button {
   .container {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -1130,3 +1146,130 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Comprehensive Device Responsiveness (Mobile, Phablet, Tablet, Desktop)
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /* Hero Section Adaptations */
+  .hero-rotating-wrapper {
+    display: inline;
+    word-break: break-word;
+  }
+
+  .hero-rotating-text {
+    display: inline;
+    word-break: break-word;
+  }
+
+  .hero-underline-svg {
+    display: none; /* Avoid SVG stretch artifacts across wrapped multi-line text */
+  }
+
+  .hero-subhead {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .hero-highlight-point {
+    font-size: 0.95rem;
+    white-space: normal;
+    display: inline;
+    padding: 0.1rem 0.4rem;
+    word-break: break-word;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .invariants-strip {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    padding: 0.75rem 1rem !important;
+    width: 100%;
+  }
+
+  .invariants-sep {
+    display: none !important;
+  }
+
+  /* Workflow & Detail Grids */
+  .workflow-narrative-panel, 
+  .workflow-artifact-panel {
+    padding: 1.25rem !important;
+  }
+
+  /* Interactive Diff Panels */
+  .api-diff-panel {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .api-diff-footer {
+    padding: 1.25rem 1rem !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Final CTA button group */
+  .final-cta-buttons {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .final-cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Telemetry Cards */
+  .telemetry-card {
+    padding: 1.1rem !important;
+  }
+}
+
+/* Touch & Small Tablet Adjustments */
+@media (max-width: 860px) {
+  .workflow-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .workflow-narrative-panel {
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border-subtle) !important;
+  }
+
+  .workflow-pipeline-bar {
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .workflow-bottom-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .workflow-bottom-nav > div {
+    justify-content: center;
+  }
+}
+
+/* Universal Code & Pre overflow safety */
+pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+

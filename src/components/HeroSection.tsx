@@ -189,6 +189,7 @@ export const HeroSection: React.FC = () => {
 
         {/* CTA Button Group */}
         <div
+          className="hero-cta-group"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -236,6 +237,7 @@ export const HeroSection: React.FC = () => {
 
         {/* Engineering System Invariants Strip with Live Micro-Animations */}
         <div
+          className="invariants-strip"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -256,12 +258,12 @@ export const HeroSection: React.FC = () => {
             <span className="invariants-dot-live" />
             <span>Upstream Dependency Probes</span>
           </span>
-          <span style={{ color: 'var(--color-border-hover)' }}>|</span>
+          <span className="invariants-sep" style={{ color: 'var(--color-border-hover)' }}>|</span>
           <span className="invariants-badge">
             <Cpu size={14} className="invariants-icon-spin" />
             <span>Deterministic Structural Diffs</span>
           </span>
-          <span style={{ color: 'var(--color-border-hover)' }}>|</span>
+          <span className="invariants-sep" style={{ color: 'var(--color-border-hover)' }}>|</span>
           <span className="invariants-badge">
             <Terminal size={14} style={{ color: 'var(--color-text-secondary)' }} />
             <span>Pytest-Gated Approval <span className="invariants-prompt-cursor">_</span></span>
@@ -272,7 +274,7 @@ export const HeroSection: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
             gap: '1.25rem',
             maxWidth: '1100px',
             margin: '2.25rem auto 0 auto',

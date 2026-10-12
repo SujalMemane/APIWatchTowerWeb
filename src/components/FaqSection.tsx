@@ -50,7 +50,7 @@ export const FaqSection: React.FC = () => {
                   id={`faq-question-${faq.id}`}
                   style={{
                     width: '100%',
-                    padding: '1.4rem 1.75rem',
+                    padding: 'clamp(1rem, 3vw, 1.4rem) clamp(1rem, 3.5vw, 1.75rem)',
                     textAlign: 'left',
                     display: 'flex',
                     alignItems: 'center',
@@ -64,7 +64,7 @@ export const FaqSection: React.FC = () => {
                   <span
                     style={{
                       fontWeight: 700,
-                      fontSize: '1.0875rem',
+                      fontSize: 'clamp(0.95rem, 2.5vw, 1.0875rem)',
                       color: isOpen ? 'var(--color-brand-primary)' : 'var(--color-text-primary)',
                       lineHeight: 1.45,
                       letterSpacing: '-0.015em'
@@ -89,8 +89,8 @@ export const FaqSection: React.FC = () => {
                     role="region"
                     aria-labelledby={`faq-question-${faq.id}`}
                     style={{
-                      padding: '1.4rem 1.75rem 1.75rem 1.75rem',
-                      fontSize: '1rem',
+                      padding: 'clamp(1rem, 3vw, 1.4rem) clamp(1rem, 3.5vw, 1.75rem)',
+                      fontSize: 'clamp(0.9rem, 2vw, 1rem)',
                       lineHeight: 1.75,
                       color: 'var(--color-text-secondary)',
                       borderTop: '1px solid var(--color-border-subtle)',

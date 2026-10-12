@@ -56,7 +56,7 @@ export const BusinessValue: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: '2rem',
             marginBottom: '2rem'
           }}
@@ -132,7 +132,7 @@ export const BusinessValue: React.FC = () => {
           style={{
             backgroundColor: 'rgba(238, 242, 255, 0.55)',
             borderRadius: 'var(--radius-xl)',
-            padding: '2.5rem',
+            padding: 'clamp(1.25rem, 4vw, 2.5rem)',
             border: '1px solid rgba(129, 140, 248, 0.35)',
             boxShadow: 'var(--shadow-xs)'
           }}
@@ -149,7 +149,7 @@ export const BusinessValue: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
               gap: '1.25rem',
               textAlign: 'center'
             }}

@@ -123,6 +123,7 @@ export const ExtensionShowcase: React.FC = () => {
           >
             {/* 1. Activity Bar (from contributes.viewsContainers.activitybar) */}
             <div
+              className="vscode-activity-bar"
               style={{
                 backgroundColor: '#09090b',
                 borderRight: '1px solid #27272a',
@@ -1001,10 +1002,12 @@ export const ExtensionShowcase: React.FC = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                       minHeight: '260px',
-                      position: 'relative'
+                      position: 'relative',
+                      overflowX: 'auto',
+                      WebkitOverflowScrolling: 'touch'
                     }}
                   >
-                    <svg width="100%" height="220" viewBox="0 0 700 220" style={{ overflow: 'visible' }}>
+                    <svg width="100%" height="220" viewBox="0 0 700 220" style={{ overflow: 'visible', minWidth: '520px' }}>
                       {/* Grid background lines */}
                       <defs>
                         <pattern id="graph-grid-pat" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -1191,9 +1194,20 @@ export const ExtensionShowcase: React.FC = () => {
         </div>
 
         <style>{`
-          @media (max-width: 860px) {
+          @media (max-width: 992px) and (min-width: 641px) {
+            .vscode-ide-grid {
+              grid-template-columns: 48px 1fr !important;
+            }
+            .vscode-sidebar {
+              display: none !important;
+            }
+          }
+          @media (max-width: 640px) {
             .vscode-ide-grid {
               grid-template-columns: 1fr !important;
+            }
+            .vscode-activity-bar {
+              display: none !important;
             }
             .vscode-sidebar {
               display: none !important;

@@ -40,7 +40,7 @@ export const ArchitectureDiagram: React.FC = () => {
               backgroundColor: '#ffffff',
               borderRadius: 'var(--radius-xl)',
               border: '1px solid var(--color-border-default)',
-              padding: '2rem',
+              padding: 'clamp(1.25rem, 3.5vw, 2rem)',
               boxShadow: 'var(--shadow-sm)'
             }}
           >
@@ -59,7 +59,7 @@ export const ArchitectureDiagram: React.FC = () => {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
                 gap: '1.125rem'
               }}
             >
@@ -93,10 +93,10 @@ export const ArchitectureDiagram: React.FC = () => {
               <line x1="12" y1="0" x2="12" y2="36" stroke="#818cf8" strokeWidth="2.5" strokeDasharray="6 6" style={{ animation: 'data-flow 1.2s linear infinite' }} />
               <circle cx="12" cy="18" r="3.5" fill="#4f46e5" />
             </svg>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.35rem 0.95rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem', fontFamily: 'var(--font-mono)' }}>
-              <ArrowDown size={14} />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', flexWrap: 'wrap', maxWidth: '100%', gap: '0.5rem', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.35rem 0.95rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem', fontFamily: 'var(--font-mono)' }}>
+              <ArrowDown size={14} style={{ flexShrink: 0 }} />
               <span>HTTP Probes & Fingerprint Capture (HTTPX async)</span>
-              <ArrowDown size={14} />
+              <ArrowDown size={14} style={{ flexShrink: 0 }} />
             </div>
           </div>
 
@@ -106,7 +106,7 @@ export const ArchitectureDiagram: React.FC = () => {
               backgroundColor: '#0f172a',
               borderRadius: 'var(--radius-xl)',
               border: '1px solid #1e293b',
-              padding: '2.25rem',
+              padding: 'clamp(1.25rem, 3.5vw, 2.25rem)',
               color: '#ffffff',
               boxShadow: 'var(--shadow-md)'
             }}
@@ -142,7 +142,7 @@ export const ArchitectureDiagram: React.FC = () => {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
                 gap: '1.125rem'
               }}
             >
@@ -176,10 +176,10 @@ export const ArchitectureDiagram: React.FC = () => {
               <line x1="12" y1="0" x2="12" y2="36" stroke="#818cf8" strokeWidth="2.5" strokeDasharray="6 6" style={{ animation: 'data-flow 1.2s linear infinite' }} />
               <circle cx="12" cy="18" r="3.5" fill="#4f46e5" />
             </svg>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.35rem 0.95rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem', fontFamily: 'var(--font-mono)' }}>
-              <ArrowDown size={14} />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', flexWrap: 'wrap', maxWidth: '100%', gap: '0.5rem', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-brand-primary)', backgroundColor: 'var(--color-brand-surface)', padding: '0.35rem 0.95rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-brand-border)', marginTop: '0.25rem', fontFamily: 'var(--font-mono)' }}>
+              <ArrowDown size={14} style={{ flexShrink: 0 }} />
               <span>Local REST Client • Tree View RPC • Diff & Approval Commands</span>
-              <ArrowDown size={14} />
+              <ArrowDown size={14} style={{ flexShrink: 0 }} />
             </div>
           </div>
 
@@ -189,7 +189,7 @@ export const ArchitectureDiagram: React.FC = () => {
               backgroundColor: '#ffffff',
               borderRadius: 'var(--radius-xl)',
               border: '1px solid var(--color-border-default)',
-              padding: '2rem',
+              padding: 'clamp(1.25rem, 3.5vw, 2rem)',
               boxShadow: 'var(--shadow-sm)'
             }}
           >
@@ -208,7 +208,7 @@ export const ArchitectureDiagram: React.FC = () => {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 230px), 1fr))',
                 gap: '1.125rem'
               }}
             >
@@ -242,11 +242,12 @@ export const ArchitectureDiagram: React.FC = () => {
           style={{
             backgroundColor: 'rgba(238, 242, 255, 0.55)',
             borderRadius: 'var(--radius-xl)',
-            padding: '1.85rem 2rem',
+            padding: '1.5rem',
             border: '1px solid rgba(129, 140, 248, 0.35)',
             display: 'flex',
+            flexWrap: 'wrap',
             alignItems: 'flex-start',
-            gap: '1.25rem',
+            gap: '1rem',
             maxWidth: '1000px',
             margin: '0 auto',
             boxShadow: 'var(--shadow-xs)'

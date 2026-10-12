@@ -200,7 +200,7 @@ export const DeveloperSection: React.FC = () => {
 
           {/* Tab 2: Quickstart Guide */}
           {activeTab === 'quickstart' && (
-            <div style={{ padding: '2rem' }}>
+            <div style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
               <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '1.25rem' }}>
                 Production Integration & Workspace Setup
               </h3>
@@ -274,11 +274,11 @@ export const DeveloperSection: React.FC = () => {
 
           {/* Tab 4: Validation & Safety Rules */}
           {activeTab === 'safety' && (
-            <div style={{ padding: '2rem' }}>
+            <div style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
               <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '1rem' }}>
                 Strict Engineering Invariants
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.25rem' }}>
                 <div style={{ backgroundColor: '#131b2e', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b' }}>
                   <div style={{ color: '#10b981', fontWeight: 700, fontSize: '0.875rem', marginBottom: '0.35rem' }}>
                     1. No Silent Disk Writes

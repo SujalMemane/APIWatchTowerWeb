@@ -121,11 +121,12 @@ export const WorkflowProgression: React.FC = () => {
             className="workflow-detail-grid workflow-card-animated"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'minmax(340px, 1fr) minmax(360px, 1.25fr)'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))'
             }}
           >
             {/* Left Side: Step Narrative */}
             <div
+              className="workflow-narrative-panel"
               style={{
                 padding: '2.5rem',
                 display: 'flex',
@@ -201,6 +202,7 @@ export const WorkflowProgression: React.FC = () => {
 
             {/* Right Side: Technical Artifact Preview */}
             <div
+              className="workflow-artifact-panel"
               style={{
                 backgroundColor: '#090d16',
                 padding: '2.5rem',

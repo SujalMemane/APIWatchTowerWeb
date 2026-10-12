@@ -164,13 +164,14 @@ export const ApiComparisonDemo: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               backgroundColor: '#090d16',
               borderBottom: '1px solid #1e293b'
             }}
           >
             {/* Left Panel: Baseline */}
             <div
+              className="api-diff-panel"
               style={{
                 padding: '1.75rem 2rem',
                 borderRight: '1px solid #1e293b'
@@ -221,6 +222,7 @@ export const ApiComparisonDemo: React.FC = () => {
 
             {/* Right Panel: Observed */}
             <div
+              className="api-diff-panel"
               style={{
                 padding: '1.75rem 2rem',
                 backgroundColor: '#070a12'
@@ -272,11 +274,12 @@ export const ApiComparisonDemo: React.FC = () => {
 
           {/* Impact & Safety Engine Analysis Footer */}
           <div
+            className="api-diff-footer"
             style={{
               padding: '2.25rem',
               backgroundColor: '#ffffff',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
               gap: '2rem'
             }}
           >
